@@ -5,6 +5,10 @@ Icon colors
 
 -------------------------------- */
 
+body{
+    overflow: hidden;
+}
+
 .icon {
   display: inline-block;
   /* icon primary color */
@@ -49,9 +53,9 @@ Change icon size
   width: 2em;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
-Align icon and text 
+Align icon and text
 
 -------------------------------- */
 
@@ -75,7 +79,7 @@ Align icon and text
   stroke: currentColor;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 Icon reset values - used to enable color customizations
 
@@ -99,7 +103,7 @@ Icon reset values - used to enable color customizations
   fill: none;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
 Stroke effects - Nucleo outline icons
 
