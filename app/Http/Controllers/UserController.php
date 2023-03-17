@@ -10,4 +10,16 @@ class UserController extends Controller
     public function dashboard(){
         return view("User.dashboard");
     }
+
+    public function viewPendingEmails(){
+        return view("User.pendingEmails");
+    }
+
+    public function viewPendingCalls(){
+        return view("User.pendingCalls");
+    }
+
+    public function viewPendingSMSs(){
+        return view("User.pendingSMS");
+    }
 }

@@ -25,3 +25,6 @@ Route::get('/signup', [AuthController::class, 'signUpPage'])->name("sign_up_page
 Route::post("/signingUp", [AuthController::class, "signUp"])->name("signup");
 Route::post("/signingIn", [AuthController::class, "signIn"])->name("signin");
 Route::get('/dashboard', [UserController::class, 'dashboard'])->name("user_dashboard");
+Route::get("/pendingEmails", [UserController::class, "viewPendingEmails"])->name("pending_emails");
+Route::get("/pendingCalls", [UserController::class, "viewPendingCalls"])->name("pending_calls");
+Route::get("/pendingSMS", [UserController::class, "viewPendingSMSs"])->name("pending_sms");
