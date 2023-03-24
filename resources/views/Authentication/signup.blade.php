@@ -82,9 +82,17 @@
               <div class="card-header text-center pt-5 pb-0">
                 <h5>Sign Up Here</h5>
               </div>
+{{--
+              @isset($message)
+                  <h2> {{$mesage}}</h2>
+              @endisset --}}
 
+
+                {{-- @dd(
+                    $message
+                ) --}}
               <div class="card-body">
-                <form action="{{route("signup")}}" method= "POST" role="form text-left">
+                <form action="{{route('signup')}}" method= "POST" role="form text-left">
                     @csrf
                   <div class="mb-2">
                     <input type="text" class="form-control" name ="first_name" placeholder=" First Name" aria-label="Name" aria-describedby="email-addon" required>
@@ -101,6 +109,9 @@
                   </div>
                   <div class="mb-2">
                     <input type="password" class="form-control" name="password" placeholder="Password" aria-label="Password" aria-describedby="password-addon" required>
+                  </div>
+                  <div class="mb-2">
+                    <input type="password" class="form-control" name="password_confirmation" placeholder=" Confirm Password" aria-label="Password" aria-describedby="password-addon" required>
                   </div>
                   <div class="text-center">
                     <button type="submit" class="btn bg-gradient-dark w-100 my-2 mb-2">Sign up</button>
