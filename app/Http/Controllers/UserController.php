@@ -22,4 +22,12 @@ class UserController extends Controller
     public function viewPendingSMSs(){
         return view("User.pendingSMS");
     }
+
+    public function debtPortal(){
+        return view("Debt.debtPortal");
+    }
+
+    public function debtForm(){
+        return view("Debt.debtForm");
+    }
 }

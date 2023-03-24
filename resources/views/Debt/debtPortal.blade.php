@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>User Dashboard</title>
+    <title>DASHMIN - Bootstrap Admin Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -23,10 +23,17 @@
     <link href="{{asset("assets/assets1/css/bootstrap.min.css")}}" rel="stylesheet">
 
     <link href="{{asset("assets/assets1/css/style.css")}}" rel="stylesheet">
+
 </head>
 
 <body>
     <div class="container-xxl position-relative bg-white d-flex p-0">
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
 
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
@@ -52,14 +59,16 @@
                             <a href="{{route("pending_calls")}}" class="dropdown-item"> Call</a>
                         </div>
                     </div>
-                    <a href="widget.html" class="nav-item nav-link mb-2"><i class="fa fa-table me-2"></i>Debt History</a>
-                    <a href="form.html" class="nav-item nav-link mb-2"><i class="fa fa-th me-2"></i>Debt Portal</a>
-                    <a href="chart.html" class="nav-item nav-link mb-2"><i class="fa fa-cog me-2"></i>Settings</a>
+                    <a href="#" class="nav-item nav-link mb-2"><i class="fa fa-table me-2"></i>Debt History</a>
+                    <a href="#" class="nav-item nav-link mb-2"><i class="fa fa-th me-2"></i>Debt Portal</a>
+                    <a href="#" class="nav-item nav-link mb-2"><i class="fa fa-cog me-2"></i>Settings</a>
                 </div>
             </nav>
         </div>
 
-        <div class="content pb-4">
+
+        <div class="content">
+
             <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
                     <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
@@ -150,39 +159,55 @@
 
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
-                    <div class="col-sm-6 col-xl-4">
-                        <div class="bg-light rounded d-flex align-items-center p-4">
-                            <i class="fa fa-envelope fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Email Reminders</p>
-                                <h6 class="mb-0">10</h6>
+                    <div class="col-sm-12 col-md-6 col-xl-4">
+                        <div class="h-100 bg-light rounded p-4">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <h6 class="mb-0">Notifications</h6>
+                                <a href="">Show All</a>
+                            </div>
+                            <div class="d-flex align-items-center border-bottom py-3">
+                                <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                <div class="w-100 ms-3">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-0">Sent reminder to Jhon Doe</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                    <span>Short message goes here...</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center border-bottom py-3">
+                                <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                <div class="w-100 ms-3">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-0">Called Nick Bella</h6>
+                                        <small>10 minutes ago</small>
+                                    </div>
+                                    <span>Short message goes here...</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center border-bottom py-3">
+                                <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                <div class="w-100 ms-3">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-0">Jhon Doe</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                    <span>Short message goes here...</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center pt-3">
+                                <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                <div class="w-100 ms-3">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-0">Jhon Doe</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                    <span>Short message goes here...</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-xl-4">
-                        <div class="bg-light rounded d-flex align-items-center p-4">
-                            <i class="fa fa-phone icon-rotate icon-flipped fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Call Reminders</p>
-                                <h6 class="mb-0">4</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-4">
-                        <div class="bg-light rounded d-flex align-items-center p-4">
-                            <i class="fa fa-envelope fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">SMS Reminders</p>
-                                <h6 class="mb-0">12</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-6 col-md-6 col-xl-6">
+                    <div class="col-sm-12 col-md-6 col-xl-4">
                         <div class="h-100 bg-light rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h6 class="mb-0">Calender</h6>
@@ -191,107 +216,116 @@
                             <div id="calender"></div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-xl-6">
+                    <div class="col-sm-12 col-md-6 col-xl-4">
                         <div class="h-100 bg-light rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Debts for Today</h6>
-                                <a href="">Show All</a>
+                                <h6 class="mb-0">Reminders for Today</h6>
                             </div>
-                            <div class="d-flex mb-2">
-                                <p class="text-secondary px-5 ms-5"><em>NO REMINDERS</em></p>
-                            </div>
+
                             <div class="d-flex align-items-center border-bottom py-2">
+                                <input class="form-check-input m-0" type="checkbox">
                                 <div class="w-100 ms-3">
                                     <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
+                                        <span>Mark - Rent </span>
                                         <button class="btn btn-sm"><i class="fa fa-times"></i></button>
                                     </div>
                                 </div>
                             </div>
                             <div class="d-flex align-items-center border-bottom py-2">
+                                <input class="form-check-input m-0" type="checkbox">
                                 <div class="w-100 ms-3">
                                     <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
+                                        <span>Rita - Saloon services</span>
                                         <button class="btn btn-sm"><i class="fa fa-times"></i></button>
                                     </div>
                                 </div>
                             </div>
                             <div class="d-flex align-items-center border-bottom py-2">
+                                <input class="form-check-input m-0" type="checkbox" checked>
                                 <div class="w-100 ms-3">
                                     <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span><del>Short task goes here...</del></span>
+                                        <span><del>Frank - loan</del></span>
                                         <button class="btn btn-sm text-primary"><i class="fa fa-times"></i></button>
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-primary mt-4"><a href="" class="text-white">Add New  Debt</a></button>
+                            <div class="d-flex align-items-center border-bottom py-2">
+                                <input class="form-check-input m-0" type="checkbox">
+                                <div class="w-100 ms-3">
+                                    <div class="d-flex w-100 align-items-center justify-content-between">
+                                        <span>Hailey - Loan</span>
+                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Table Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-12">
+                        <div class="bg-light rounded h-100 p-4">
+                            <div class="row">
+                                <h6 class="col mb-4">Debt Table</h6>
+                                <button type="button" class="col-1 btn btn-primary ms-2"><a class="text-white"href="{{route('debt_form')}}">Add</a></button>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">First Name</th>
+                                            <th scope="col">Last Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Debt</th>
+                                            <th scope="col">Purpose</th>
+                                            <th scope="col">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>John</td>
+                                            <td>Doe</td>
+                                            <td>jhon@email.com</td>
+                                            <td>$45000</td>
+                                            <td>Rent</td>
+                                            <td>not paid</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>John</td>
+                                            <td>Doe</td>
+                                            <td>jhon@email.com</td>
+                                            <td>$45000</td>
+                                            <td>Rent</td>
+                                            <td>not paid</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>John</td>
+                                            <td>Doe</td>
+                                            <td>jhon@email.com</td>
+                                            <td>$45000</td>
+                                            <td>Rent</td>
+                                            <td>not paid</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="container-fluid pt-4 px-4">
-                <div class="bg-light text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Recent Debt Reminders</h6>
-                        <a href="">Show All</a>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table text-start align-middle table-bordered table-hover mb-0">
-                            <thead>
-                                <tr class="text-dark">
-                                    <th scope="col"><input class="form-check-input" type="checkbox"></th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Reminder Type</th>
-                                    <th scope="col">Reminded</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+            <!-- Table End -->
                 </div>
             </div>
 
         </div>
-
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
