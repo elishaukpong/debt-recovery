@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,10 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/', [AuthController::class, 'signInPage'])->name("sign_in_page");
 Route::get('/signup', [AuthController::class, 'signUpPage'])->name("sign_up_page");
+Route::post("/signingUp", [AuthController::class, "signUp"])->name("signup");
+Route::post("/signingIn", [AuthController::class, "signIn"])->name("signin");
+Route::get('/dashboard', [UserController::class, 'dashboard'])->name("user_dashboard");
+
+// To do
+// 2. Authentication of User and linking to DashBoard
+// 3. Rearranging of Dashboard
