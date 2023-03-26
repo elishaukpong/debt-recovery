@@ -11,18 +11,12 @@ use App\Repository\Eloquent\AuthRepository;
 class AuthController extends Controller
 {
     protected $authRepository;
+    protected const FALSE = false;
+    protected const TRUE = true;
 
     public function __construct( AuthRepository $authRepository)
     {
         $this->authRepository = $authRepository;
-    }
-
-    public function responseIsTrue(){
-        return true;
-    }
-
-    public function responseIsFalse(){
-        return false;
     }
 
     public function signInPage(){
@@ -37,21 +31,21 @@ class AuthController extends Controller
         $signUpResponse = $this->authRepository->signUp($request->validated());
 
 
-        if($signUpResponse == $this->responseIsFalse()) {
+        if($signUpResponse === self::FALSE) {
             return view('register', ["message" => $signUpResponse['message']]);
         }
 
-        return redirect("/dashboard");
+        return view("User.dashboard");
 
     }
 
     public function signIn(SignInRequest $request){
         $signInResponse = $this->authRepository->signIn($request->validated());
 
-        if($signInResponse == $this->responseIsFalse()) {
+        if($signInResponse === self::FALSE) {
             return view('Authentication.signup', ["message" => $signInResponse['message']]);
         }
 
-        return redirect("/dashboard");
+        return view("User.dashboard");
     }
 }

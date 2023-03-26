@@ -13,7 +13,7 @@ class ReminderRequest extends FormRequest
      */
     public function authorize()
     {
-        return auth()->user();
+        return auth()->check();
     }
 
     /**
@@ -27,7 +27,7 @@ class ReminderRequest extends FormRequest
             "user_id" => "required",
             "email" => "required",
             "phone_number" => "required",
-            "amount" => "required",
+            "amount" => "required|max:15",
         ];
     }
 }

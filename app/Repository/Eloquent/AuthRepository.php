@@ -8,45 +8,34 @@ use App\Repository\BaseRepository;
 class AuthRepository extends BaseRepository{
 
     protected $user;
+    protected const TRUE = true;
+    protected const FALSE = false;
+
 
     public function __construct(User $user)
     {
         $this->user = $user;
     }
 
-    public function signUp($request){
-        $request['password'] = bcrypt($request['password']);
+    public function signUp($data){
+        $data['password'] = bcrypt($data['password']);
 
-        if(!$user = $this->user->create($request)){
-            return [
-                "status" => $this->isUnsuccessful(),
-                "message" => "SignUp Failed"
-            ];
-        }
+        $this->user->create($data);
+
+        auth()->login($this->user->where("email", $data['email'])->first());
 
         return [
-            "status" => $this->isSuccessful(),
-            "user" => $user,
+            "status" => self::TRUE,
+            "data" => $data,
         ];
     }
 
-    public function signIn($request){
-        if(!auth()->attempt([
-            'email' => $request['email'],
-            'password' => $request['password']
-            ])) {
+    public function signIn($data){
 
-            return [
-                "status" => $this->isUnsuccessful(),
-                "message" => "Invalid credientials"
-            ];
+        if(!auth()->attempt($data)) {
+            return self::FALSE;
         }
 
-        auth()->login($this->user->where("email", $request['email'])->first());
-
-        return [
-            "status" => $this->isSuccessful(),
-            "user" => auth()->user(),
-        ];
+        return auth()->login($this->user->where("email", $data['email'])->first());
     }
 }
