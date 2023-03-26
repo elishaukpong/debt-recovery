@@ -30,4 +30,12 @@ class UserController extends Controller
     public function debtForm(){
         return view("Debt.debtForm");
     }
+
+    public function debtHistory(){
+        return view("Debt.debtHIstory");
+    }
+
+    public function Settings(){
+        return view ("User.settings");
+    }
 }

@@ -30,3 +30,5 @@ Route::get("/pendingCalls", [UserController::class, "viewPendingCalls"])->name("
 Route::get("/pendingSMS", [UserController::class, "viewPendingSMSs"])->name("pending_sms");
 Route::get("/debtPortal", [UserController::class, "debtPortal"])->name("debt_portal");
 Route::get("/debtForm", [UserController::class, "debtForm"])->name("debt_form");
+Route::get("/debtHistory", [UserController::class, "debtHistory"])->name("debt_history");
+Route::get("/Settings", [UserController::class, "settings"])->name("settings");
