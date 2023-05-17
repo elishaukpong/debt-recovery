@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SMSController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 
@@ -32,3 +33,6 @@ Route::get("/debtPortal", [UserController::class, "debtPortal"])->name("debt_por
 Route::get("/debtForm", [UserController::class, "debtForm"])->name("debt_form");
 Route::get("/debtHistory", [UserController::class, "debtHistory"])->name("debt_history");
 Route::get("/Settings", [UserController::class, "settings"])->name("settings");
+
+
+Route::get('/send', [SMSController::class, "send"])->name('sms.send');
