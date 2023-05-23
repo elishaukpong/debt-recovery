@@ -3,31 +3,35 @@
 
 <head>
     <meta charset="utf-8">
-    <title>User Dashboard</title>
+    <title>Pending Calls</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
     <link href="img/favicon.ico" rel="icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
     <link href="{{asset("assets/assets1/css/bootstrap.min.css")}}" rel="stylesheet">
-
     <link href="{{asset("assets/assets1/css/style.css")}}" rel="stylesheet">
 </head>
 
 <body>
     <div class="container-xxl position-relative bg-white d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
 
+
+        <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
@@ -43,23 +47,27 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="#" class="nav-item nav-link active mb-2"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="{{route("user_dashboard")}}" class="nav-item nav-link  mb-2"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle mb-2" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>Pending</a>
+                        <a href="#" class="nav-link dropdown-toggle mb-2 active" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>Pending</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="{{route("pending_emails")}}" class="dropdown-item"> Email</a>
                             <a href="{{route("pending_sms")}}" class="dropdown-item"> SMS</a>
-                            <a href="{{route("pending_calls")}}" class="dropdown-item"> Call</a>
+                            <a href="{{route("pending_calls")}}" class="dropdown-item active"> Call</a>
                         </div>
                     </div>
-                    <a href="{{route("debt_history")}}" class="nav-item nav-link mb-2"><i class="fa fa-table me-2"></i>Debt History</a>
-                    <a href="{{route("debt_portal")}}" class="nav-item nav-link mb-2"><i class="fa fa-th me-2"></i>Debt Portal</a>
-                    <a href="{{route("settings")}}" class="nav-item nav-link mb-2"><i class="fa fa-cog me-2"></i>Settings</a>
+                    <a href="widget.html" class="nav-item nav-link mb-2"><i class="fa fa-table me-2"></i>Debt History</a>
+                    <a href="form.html" class="nav-item nav-link mb-2"><i class="fa fa-th me-2"></i>Debt Portal</a>
+                    <a href="chart.html" class="nav-item nav-link mb-2"><i class="fa fa-cog me-2"></i>Settings</a>
                 </div>
             </nav>
         </div>
+        <!-- Sidebar End -->
 
-        <div class="content pb-4">
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
             <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
                     <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
@@ -147,153 +155,77 @@
                     </div>
                 </div>
             </nav>
+            <!-- Navbar End -->
 
+
+            <!-- Table Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
-                    <div class="col-sm-6 col-xl-4">
-                        <div class="bg-light rounded d-flex align-items-center p-4">
-                            <i class="fa fa-envelope fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Email Reminders</p>
-                                <h6 class="mb-0">10</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-4">
-                        <div class="bg-light rounded d-flex align-items-center p-4">
-                            <i class="fa fa-phone icon-rotate icon-flipped fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Call Reminders</p>
-                                <h6 class="mb-0">4</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-4">
-                        <div class="bg-light rounded d-flex align-items-center p-4">
-                            <i class="fa fa-envelope fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">SMS Reminders</p>
-                                <h6 class="mb-0">12</h6>
+                    <div class="col-12">
+                        <div class="bg-light rounded h-100 p-4">
+                            <h6 class="mb-4">Call Reminders for Debtors</h6>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">First Name</th>
+                                            <th scope="col">Last Name</th>
+                                            <th scope="col">Phone Number</th>
+                                            <th scope="col">Debt</th>
+                                            <th scope="col">Reason</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>John</td>
+                                            <td>Doe</td>
+                                            <td>jhon@email.com</td>
+                                            <td>USA</td>
+                                            <td>123</td>
+                                            <td>Member</td>
+                                            <td><button class="btn-primary text-white">Delete</button></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>mark@email.com</td>
+                                            <td>UK</td>
+                                            <td>456</td>
+                                            <td>Member</td>
+                                            <td><button class="btn-primary text-white">Delete</button></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td>jacob@email.com</td>
+                                            <td>AU</td>
+                                            <td>789</td>
+                                            <td>Member</td>
+                                            <td><button class="btn-primary text-white">Delete</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-6 col-md-6 col-xl-6">
-                        <div class="h-100 bg-light rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Calender</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <div id="calender"></div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-xl-6">
-                        <div class="h-100 bg-light rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Debts for Today</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <div class="d-flex mb-2">
-                                <p class="text-secondary px-5 ms-5"><em>NO REMINDERS</em></p>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span>Short task goes here...</span>
-                                        <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-2">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 align-items-center justify-content-between">
-                                        <span><del>Short task goes here...</del></span>
-                                        <button class="btn btn-sm text-primary"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="button" class="btn btn-primary mt-4"><a href="" class="text-white">Add New  Debt</a></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container-fluid pt-4 px-4">
-                <div class="bg-light text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Recent Debt Reminders</h6>
-                        <a href="">Show All</a>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table text-start align-middle table-bordered table-hover mb-0">
-                            <thead>
-                                <tr class="text-dark">
-                                    <th scope="col"><input class="form-check-input" type="checkbox"></th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Reminder Type</th>
-                                    <th scope="col">Reminded</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
-                                    <td>INV-0123</td>
-                                    <td>Jhon Doe</td>
-                                    <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
+            <!-- Table End -->
         </div>
+        <!-- Content End -->
 
+
+        <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
+    <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{asset("assets/assets1/lib/chart/chart.min.js")}}"></script>
@@ -304,7 +236,7 @@
     <script src="{{asset("assets/assets1/lib/tempusdominus/js/moment-timezone.min.js")}}"></script>
     <script src="{{asset("assets/assets1/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js")}}"></script>
 
-
+    <!-- Template Javascript -->
     <script src="{{asset("assets/assets1/js/main.js")}}"></script>
 </body>
 

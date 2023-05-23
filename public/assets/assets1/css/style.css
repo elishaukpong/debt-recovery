@@ -86,6 +86,13 @@
     transition: 0.5s;
 }
 
+.icon-flipped {
+    transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+}
+
 @media (min-width: 992px) {
     .sidebar {
         margin-left: 0;
