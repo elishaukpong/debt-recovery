@@ -32,7 +32,7 @@ Route::get("/pendingSMS", [UserController::class, "viewPendingSMSs"])->name("pen
 Route::get("/debtPortal", [UserController::class, "debtPortal"])->name("debt_portal");
 Route::get("/debtForm", [UserController::class, "debtForm"])->name("debt_form");
 Route::get("/debtHistory", [UserController::class, "debtHistory"])->name("debt_history");
-Route::get("/Settings", [UserController::class, "settings"])->name("settings");
+Route::get("/settings", [UserController::class, "settings"])->name("settings");
 
 
 Route::get('/send', [SMSController::class, "send"])->name('sms.send');

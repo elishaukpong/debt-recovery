@@ -70,10 +70,8 @@
                   </button>
                   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                      <a class="menu-nav-link ms-5 ps-4 active" aria-current="page" href="#" id="profileLink"><div  onclick="showProfile()"> Profile</div></a>
-                      <a class="menu-nav-link ms-5 ps-4" href="#"><div onclick="showPassword()"> Password </div></a>
-                      <a class="menu-nav-link ms-5 ps-4" href="#"> <div onclick="showReminder()"> Reminders </div></a>
-                      <a class="menu-nav-link ms-5 ps-4" href="#"><div onclick="showReport()"> Report</div></a>
+                      <a class="menu-nav-link ms-2 ps-5 active" aria-current="page" href="#" id="profileLink"><div  onclick="showProfile()"> Profile</div></a>
+                      <a class="menu-nav-link ms-5 ps-5" href="#"><div onclick="showPassword()"> Password </div></a>
                     </div>
                   </div>
                 </div>
@@ -179,65 +177,6 @@
                     </div>
                 </div>
 
-                <div class="reminder row g-4 setmenu"  id="reminder" style="display: none">
-                    <div class="col-12">
-                        <div class="bg-light rounded h-100 p-5">
-
-                            <h4 class="mb-4">Reminder</h4>
-
-                            <div class="row g-4">
-                                <div class="col-sm-6 col-md-6 col-xl-6">
-                                    <div class="h-100 bg-light rounded p-4">
-                                        <div class="d-flex align-items-center justify-content-between mb-4">
-                                            <h6 class="mb-0">Calender</h6>
-                                            <a href="">Show All</a>
-                                        </div>
-                                        <div id="calender"></div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-6 col-xl-6">
-                                    <div class="h-100 bg-light rounded p-4">
-                                        <div class="d-flex align-items-center justify-content-between mb-4">
-                                            <h6 class="mb-0">Debts for Today</h6>
-                                            <a href="">Show All</a>
-                                        </div>
-                                        <div class="d-flex mb-2">
-                                            <p class="text-secondary px-5 ms-5"><em>NO REMINDERS</em></p>
-                                        </div>
-                                        <div class="d-flex align-items-center border-bottom py-2">
-                                            <div class="w-100 ms-3">
-                                                <div class="d-flex w-100 align-items-center justify-content-between">
-                                                    <span>Short task goes here...</span>
-                                                    <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-center border-bottom py-2">
-                                            <div class="w-100 ms-3">
-                                                <div class="d-flex w-100 align-items-center justify-content-between">
-                                                    <span>Short task goes here...</span>
-                                                    <button class="btn btn-sm"><i class="fa fa-times"></i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-center border-bottom py-2">
-                                            <div class="w-100 ms-3">
-                                                <div class="d-flex w-100 align-items-center justify-content-between">
-                                                    <span><del>Short task goes here...</del></span>
-                                                    <button class="btn btn-sm text-primary"><i class="fa fa-times"></i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button type="button" class="btn btn-primary mt-4"><a href="" class="text-white">Add New  Debt</a></button>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-
-                <div class="report row g-4 setmenu" id="report" style="display: none">
-                    <h2>Report</h2>
-                </div>
             </div>
         </div>
     </div>
@@ -257,13 +196,8 @@
 
         const Setmenus = document.querySelectorAll('.setmenu');
         let Profile = document.getElementById("profile");
-        let Reminder = document.getElementById("reminder");
         let Password = document.getElementById("password");
-        let Report = document.getElementById("report");
         let Menus = document.querySelectorAll('.menu-nav-link');
-
-        console.log(Report);
-
 
         window.addEventListener('load', function (){
             showProfile();
@@ -280,7 +214,6 @@
         function hide(){
             Setmenus.forEach(Setmenu => {
             Setmenu.style.display = 'none';
-            // Setmenu.target.className = 'active';
 
             Menus.forEach(function(menu){
                 menu.style.color = '#000';
@@ -295,17 +228,6 @@
 
             if (Profile.style.display === "none") {
                 Profile.style.display = "block";
-                // Profile.className = 'active';
-            }
-
-        }
-
-        function showReminder() {
-            hide();
-
-            if (Reminder.style.display === "none") {
-                Reminder.style.display = "block";
-                // Reminder.classList.add('active') ;
             }
 
         }
@@ -315,15 +237,7 @@
 
             if (Password.style.display === "none") {
                 Password.style.display = "block";
-                // Reminder.classList.add('active') ;
             }
-
-        }
-
-        function showReport() {
-            hide();
-
-                Report.style.display = "block";
 
         }
 
