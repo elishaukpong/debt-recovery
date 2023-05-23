@@ -36,3 +36,7 @@ Route::get("/Settings", [UserController::class, "settings"])->name("settings");
 
 
 Route::get('/send', [SMSController::class, "send"])->name('sms.send');
+
+
+// work on the SMS feature
+// Link all the fronend pages (blades) perfectly.

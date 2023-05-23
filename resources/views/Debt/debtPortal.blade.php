@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="#" class="nav-item nav-link active mb-2"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="#" class="nav-item nav-link mb-2"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle mb-2" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>Pending</a>
                         <div class="dropdown-menu bg-transparent border-0">
@@ -59,9 +59,9 @@
                             <a href="{{route("pending_calls")}}" class="dropdown-item"> Call</a>
                         </div>
                     </div>
-                    <a href="#" class="nav-item nav-link mb-2"><i class="fa fa-table me-2"></i>Debt History</a>
-                    <a href="#" class="nav-item nav-link mb-2"><i class="fa fa-th me-2"></i>Debt Portal</a>
-                    <a href="#" class="nav-item nav-link mb-2"><i class="fa fa-cog me-2"></i>Settings</a>
+                    <a href="{{route("debt_history")}}" class="nav-item nav-link mb-2"><i class="fa fa-table me-2"></i>Debt History</a>
+                    <a href="{{route("debt_portal")}}" class="active nav-item nav-link mb-2"><i class="fa fa-th me-2"></i>Debt Portal</a>
+                    <a href="{{route("settings")}}" class="nav-item nav-link mb-2"><i class="fa fa-cog me-2"></i>Settings</a>
                 </div>
             </nav>
         </div>

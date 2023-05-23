@@ -46,16 +46,16 @@
                 <div class="navbar-nav w-100">
                     <a href="{{route("user_dashboard")}}" class="nav-item nav-link  mb-2"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle mb-2 active" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>Pending</a>
+                        <a href="#" class="nav-link dropdown-toggle mb-2" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>Pending</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="{{route("pending_emails")}}" class="dropdown-item"> Email</a>
-                            <a href="{{route("pending_sms")}}" class="dropdown-item active"> SMS</a>
+                            <a href="{{route("pending_sms")}}" class="dropdown-item"> SMS</a>
                             <a href="{{route("pending_calls")}}" class="dropdown-item"> Call</a>
                         </div>
                     </div>
-                    <a href="widget.html" class="nav-item nav-link mb-2"><i class="fa fa-table me-2"></i>Debt History</a>
-                    <a href="form.html" class="nav-item nav-link mb-2"><i class="fa fa-th me-2"></i>Debt Portal</a>
-                    <a href="chart.html" class="nav-item nav-link mb-2"><i class="fa fa-cog me-2"></i>Settings</a>
+                    <a href="{{route("debt_history")}}" class="nav-item nav-link mb-2 active"><i class="fa fa-table me-2"></i>Debt History</a>
+                    <a href="{{route("debt_portal")}}" class="nav-item nav-link mb-2"><i class="fa fa-th me-2"></i>Debt Portal</a>
+                    <a href="{{route("settings")}}" class="nav-item nav-link mb-2"><i class="fa fa-cog me-2"></i>Settings</a>
                 </div>
             </nav>
         </div>

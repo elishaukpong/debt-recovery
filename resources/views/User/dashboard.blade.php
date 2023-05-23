@@ -52,9 +52,9 @@
                             <a href="{{route("pending_calls")}}" class="dropdown-item"> Call</a>
                         </div>
                     </div>
-                    <a href="widget.html" class="nav-item nav-link mb-2"><i class="fa fa-table me-2"></i>Debt History</a>
-                    <a href="form.html" class="nav-item nav-link mb-2"><i class="fa fa-th me-2"></i>Debt Portal</a>
-                    <a href="chart.html" class="nav-item nav-link mb-2"><i class="fa fa-cog me-2"></i>Settings</a>
+                    <a href="{{route("debt_history")}}" class="nav-item nav-link mb-2"><i class="fa fa-table me-2"></i>Debt History</a>
+                    <a href="{{route("debt_portal")}}" class="nav-item nav-link mb-2"><i class="fa fa-th me-2"></i>Debt Portal</a>
+                    <a href="{{route("settings")}}" class="nav-item nav-link mb-2"><i class="fa fa-cog me-2"></i>Settings</a>
                 </div>
             </nav>
         </div>
