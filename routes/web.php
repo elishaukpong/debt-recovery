@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SMSController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -25,6 +26,7 @@ Route::get('/', [AuthController::class, 'signInPage'])->name("sign_in_page");
 Route::get('/signup', [AuthController::class, 'signUpPage'])->name("sign_up_page");
 Route::post("/signingUp", [AuthController::class, "signUp"])->name("signup");
 Route::post("/signingIn", [AuthController::class, "signIn"])->name("signin");
+Route::get("/signout", [AuthController::class, "signOut"])->name("signout");
 Route::get('/dashboard', [UserController::class, 'dashboard'])->name("user_dashboard");
 Route::get("/pendingEmails", [UserController::class, "viewPendingEmails"])->name("pending_emails");
 Route::get("/pendingCalls", [UserController::class, "viewPendingCalls"])->name("pending_calls");
@@ -38,5 +40,10 @@ Route::get("/settings", [UserController::class, "settings"])->name("settings");
 Route::get('/send', [SMSController::class, "send"])->name('sms.send');
 
 
+Route::post("changePassword", [AuthController::class, 'changePassword'])->name("change_password");
+Route::get("send_email/{email}", [EmailController::class, 'sendChangePassword'])->name("change_password.send_email");
+
+
 // work on the SMS feature
-// Link all the fronend pages (blades) perfectly.
+// work on password
+// update profile feature
