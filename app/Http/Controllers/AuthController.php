@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\SignInRequest;
 use App\Http\Requests\SignUpRequest;
 use App\Repository\Eloquent\AuthRepository;
@@ -35,7 +36,7 @@ class AuthController extends Controller
             return view('register', ["message" => $signUpResponse['message']]);
         }
 
-        return view("User.dashboard");
+        return view("User.dashboard", ["user" => auth()->user()]);
 
     }
 
@@ -47,5 +48,20 @@ class AuthController extends Controller
         }
 
         return view("User.dashboard");
+    }
+
+    public function signOut(Request $request){
+        $this->authRepository->signOut($request);
+
+        return redirect("/");
+    }
+
+    public function changePassword(ChangePasswordRequest $request){
+        dd($request);
+
+        $changePasswordResponse = $this->authRepository->changePassword($request->validated());
+
+        return view("User.settings", ["messsage" => $changePasswordResponse['message']]);
+
     }
 }

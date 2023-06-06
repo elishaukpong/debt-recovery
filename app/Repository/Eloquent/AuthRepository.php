@@ -36,6 +36,41 @@ class AuthRepository extends BaseRepository{
             return self::FALSE;
         }
 
-        return auth()->login($this->user->where("email", $data['email'])->first());
+        auth()->login($this->user->where("email", $data['email'])->first());
+
+    }
+
+    public function signOut($data){
+        return auth()->logout($data);
+    }
+
+    public function changePassword($data){
+        // $data['password'] = bycrypt($data['password']);
+
+        $result = $this->user->where("id", auth()->user()->id)->update([
+            "password" => bcrypt($data["password"])
+        ]);
+
+        dd($result);
+
+        if(!$result){
+            return [
+                "status" => self::FALSE,
+                "message" => "Failed to change password",
+            ];
+        }
+
+        return [
+            "status" => self::TRUE,
+            "message" => "Your password was changed successfully",
+        ];
+
+
+        #Update the new Password
+        // User::whereId(auth()->user()->id)->update([
+        //     'password' => Hash::make($request->new_password)
+        // ]);
+
+        // return back()->with("status", "Password changed successfully!");
     }
 }

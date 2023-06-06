@@ -77,6 +77,10 @@
                 </div>
             </nav>
 
+            @isset($message)
+                {{$message}}
+            @endisset
+
             <div class="container-fluid pt-1 px-4">
                 <div class="profile row g-4 setmenu" id="profile" style="display: none">
                     <div class="col-12">
@@ -136,21 +140,16 @@
                     </div>
                 </div>
 
-                <div class="password row g-4 setmenu" id="password" style="display: none">
-                    <div class="col-12">
+                <div class="password row g-4 setmenu my-5 " id="password" style="display: none">
+                    <form action="{{route("change_password.send_email", auth()->user()->email)}}" method="GET" class="col-12">
+                        @csrf
                         <div class="bg-light rounded h-100 p-5">
 
                             <h4 class="mb-4">Reset Password</h4>
 
-                            <div class="row g-3 pt-4 align-items-center">
+                            <div class="row g-3 pt-4 align-items-center my-5 py-5">
 
-                              <div class="col-3">
-                                <label for="inputPassword6" class="col-form-label">Old Password</label>
-                              </div>
-
-                              <div class="col-7">
-                                <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" name="password">
-                              </div>
+                                <input type="email" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" value="{{auth()->user()->email}}" name="email" hidden>
 
                               <div class="col-3">
                                 <label for="inputPassword6" class="col-form-label">New Password</label>
@@ -165,16 +164,16 @@
                               </div>
 
                               <div class="col-7">
-                                <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" name="password">
+                                <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" name="password_confirmation">
                               </div>
 
                             </div>
 
+                            <button type="submit" class="btn btn-primary mt-3 col-1">Change</button>
 
                         </div>
 
-                        <button class="btn btn-primary mt-3 col-1">Change</button>
-                    </div>
+                    </form>
                 </div>
 
             </div>
