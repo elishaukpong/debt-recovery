@@ -9,7 +9,7 @@ use App\Http\Requests\SignInRequest;
 use App\Http\Requests\SignUpRequest;
 use App\Repository\Eloquent\AuthRepository;
 
-class AuthController extends Controller
+class AuthController extends Controller 
 {
     protected $authRepository;
     protected const FALSE = false;

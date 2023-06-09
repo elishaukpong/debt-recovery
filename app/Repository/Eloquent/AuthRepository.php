@@ -51,7 +51,6 @@ class AuthRepository extends BaseRepository{
             "password" => bcrypt($data["password"])
         ]);
 
-        dd($result);
 
         if(!$result){
             return [

@@ -76,16 +76,20 @@
                   </div>
                 </div>
             </nav>
-
             @isset($message)
-                {{$message}}
+                <div style="color:green;" class="p-2 mb-3 shadow center col-3"">{{$message}}</div>
             @endisset
 
             <div class="container-fluid pt-1 px-4">
-                <div class="profile row g-4 setmenu" id="profile" style="display: none">
+                <form action="{{route("profile_update")}}" method="POST" class="profile row g-4 setmenu" id="profile" style="display: none">
+                    @csrf
+                    @method("PUT")
                     <div class="col-12">
                         <div class="bg-light rounded h-100 p-5">
-
+                            @isset($profile_message)
+                                <div style="color:green;" class="p-2 mb-3 shadow center col-3">{{$profile_message}}</div>
+                            @endisset
+                            
                             <h4 class="mb-4">Profile</h4>
                             <small>Update your personal details here</small>
 
@@ -94,7 +98,7 @@
                                   <label for="First Name" class="col-form-label" >First Name</label>
                                 </div>
                                 <div class="col-7">
-                                  <input type="text" class="form-control" name="first_name">
+                                  <input type="text" class="form-control" name="first_name" value={{auth()->user()->first_name}}>
                                 </div>
                             </div>
 
@@ -103,7 +107,7 @@
                                   <label for="Last Name" class="col-form-label" >Last Name</label>
                                 </div>
                                 <div class="col-7">
-                                  <input type="text" class="form-control" name="last_name">
+                                  <input type="text" class="form-control" name="last_name" value={{auth()->user()->last_name}}>
                                 </div>
                             </div>
 
@@ -112,7 +116,7 @@
                                   <label class="col-form-label" name="email">Email</label>
                                 </div>
                                 <div class="col-7">
-                                  <input type="email" class="form-control">
+                                  <input type="email" class="form-control" name="email" value={{auth()->user()->email}}>
                                 </div>
                             </div>
 
@@ -120,14 +124,14 @@
                                 <div class="col-3">
                                   <label class="col-form-label">Phone number</label>
                                 </div>
-                                <div name="phone_number" class="col-7">
-                                  <input type="number" class="form-control"  placeholder="08034728913">
+                                <div class="col-7">
+                                  <input type="number" class="form-control"  name="phone_number" value={{auth()->user()->phone_number}}>
                                 </div>
                             </div>
 
                             <div class="row g-3 pt-4 align-items-center">
                                 <div class="col-3">
-                                    <label for="inputPassword6" class="col-form-label">Photo</label>
+                                    <label class="col-form-label">Photo</label>
                                 </div>
                                 <div class="col-7">
                                     <input type="file" name="photo">
@@ -136,9 +140,9 @@
 
                         </div>
 
-                        <button class="btn btn-primary mt-3 col-1">Edit</button>
+                        <button type="submit" class="btn btn-primary mt-3 col-1">Edit</button>
                     </div>
-                </div>
+                </form>
 
                 <div class="password row g-4 setmenu my-5 " id="password" style="display: none">
                     <form action="{{route("change_password.send_email", auth()->user()->email)}}" method="GET" class="col-12">

@@ -35,15 +35,11 @@ Route::get("/debtPortal", [UserController::class, "debtPortal"])->name("debt_por
 Route::get("/debtForm", [UserController::class, "debtForm"])->name("debt_form");
 Route::get("/debtHistory", [UserController::class, "debtHistory"])->name("debt_history");
 Route::get("/settings", [UserController::class, "settings"])->name("settings");
+Route::put('/update_profile', [UserController::class, "update"])->name("profile_update");
 
 
 Route::get('/send', [SMSController::class, "send"])->name('sms.send');
 
-
 Route::post("changePassword", [AuthController::class, 'changePassword'])->name("change_password");
 Route::get("send_email/{email}", [EmailController::class, 'sendChangePassword'])->name("change_password.send_email");
 
-
-// work on the SMS feature
-// work on password
-// update profile feature
