@@ -7,6 +7,8 @@ use App\Models\User;
 class RegisterRepository extends BaseRepository
 {
     protected $user;
+    protected const FALSE = false;
+    protected const TRUE = true;
 
     public function __construct( User $user)
     {
@@ -19,12 +21,12 @@ class RegisterRepository extends BaseRepository
 
         if(!$this->user->create($data))
         {
-            return $this->fail() ;
+            return self::FALSE;
         }
 
         auth()->login($this->user->where("email", $data['email'])->first());
 
 
-        return $this->success();
+        return self::TRUE;
     }
 }

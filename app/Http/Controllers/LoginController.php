@@ -19,10 +19,10 @@ class LoginController extends Controller
     {
         $response = $this->loginRepository->login($request->validated());
 
-        if($response === FALSE) {
+        if($response === false) {
             return view('login', ["message" => "Login failed"]);
         }
 
-        return view("index");
+        return redirect("/dashboard");
     }
 }

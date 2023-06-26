@@ -20,7 +20,7 @@ class RegisterController extends Controller
         $response = $this->registerRepository->register($request->validated());
 
         if($response === FALSE) {
-            return view('register', ["message" => "Login failed"]);
+            return redirect()->back();
         }
 
         return view("index", ["user" => auth()->user()]);
