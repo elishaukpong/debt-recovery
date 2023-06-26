@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ResetPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,5 @@ Route::get("/reset-password", [AuthController::class, "resetPassword"])->name("r
 
 Route::post("/register", [RegisterController::class, "register"])->name("register");
 Route::post("/login", [LoginController::class, "login"])->name("login");
+Route::post("/reset-link", [ResetPasswordController::class, 'sendLink'])->name("send_link");
+Route::post("/reset-password", [ResetPasswordController::class, 'resetPassword'])->name("reset_password");

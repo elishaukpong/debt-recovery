@@ -40,12 +40,15 @@
               </p>
             </div>
             <!-- Form -->
-            <form>
-              <!-- Email -->
+            @isset($message)
+            <div class="mb-3 text-success"><h2>{{$message}}</h2></div>
+            @endisset
+            <form action={{route("send_link")}} method="POST">
+                @csrf
               <div class="mb-3">
                 <input type="email" id="email" class="form-control" name="email" placeholder="Enter Your Email" required="">
               </div>
-              <!-- Button -->
+
               <div class="mb-3 d-grid">
                 <button type="submit" class="btn btn-primary">
                     Reset Password

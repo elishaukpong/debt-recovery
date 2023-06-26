@@ -41,7 +41,8 @@
             </div>
 
 
-            <form>
+            <form action="{{route('reset_password')}}" method="POST">
+                @csrf
               <div class="mb-3">
                 <input type="email" class="form-control" name="email" value="johndoe@gmail.com" readonly>
               </div>
@@ -51,7 +52,7 @@
               </div>
 
               <div class="mb-3">
-                <input type="password" class="form-control" name="password-confirmation" placeholder="Confirm Password" required>
+                <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" required>
               </div>
 
               <div class="mb-3 d-grid">

@@ -7,6 +7,8 @@ use App\Models\User;
 class LoginRepository extends BaseRepository{
 
     protected $user;
+    protected const FALSE = false;
+    protected const TRUE = true;
 
     public function __construct(User $user)
     {
@@ -17,7 +19,7 @@ class LoginRepository extends BaseRepository{
 
         if(!auth()->attempt($data))
         {
-            return $this->fail();
+            return self::FALSE;
         }
 
         return auth()->login($this->user->where("email", $data['email'])->first());
