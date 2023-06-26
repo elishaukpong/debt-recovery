@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SMSController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,8 +11,8 @@ use App\Http\Controllers\UserController;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
 |
 */
 
@@ -20,23 +20,11 @@ use App\Http\Controllers\UserController;
 //     return view('welcome');
 // });
 
+Route::get("/register", [AuthController::class, "register"])->name('register');
+Route::get("/login", [AuthController::class, "login"])->name('login');
+Route::get("/dashboard", [AuthController::class, "dashboard"])->name('index');
+Route::get("/forget-password", [AuthController::class, "forgetPassword"])->name("forgetPassword");
+Route::get("/reset-password", [AuthController::class, "resetPassword"])->name("resetPassword");
 
-Route::get('/', [AuthController::class, 'signInPage'])->name("sign_in_page");
-Route::get('/signup', [AuthController::class, 'signUpPage'])->name("sign_up_page");
-Route::post("/signingUp", [AuthController::class, "signUp"])->name("signup");
-Route::post("/signingIn", [AuthController::class, "signIn"])->name("signin");
-Route::get('/dashboard', [UserController::class, 'dashboard'])->name("user_dashboard");
-Route::get("/pendingEmails", [UserController::class, "viewPendingEmails"])->name("pending_emails");
-Route::get("/pendingCalls", [UserController::class, "viewPendingCalls"])->name("pending_calls");
-Route::get("/pendingSMS", [UserController::class, "viewPendingSMSs"])->name("pending_sms");
-Route::get("/debtPortal", [UserController::class, "debtPortal"])->name("debt_portal");
-Route::get("/debtForm", [UserController::class, "debtForm"])->name("debt_form");
-Route::get("/debtHistory", [UserController::class, "debtHistory"])->name("debt_history");
-Route::get("/settings", [UserController::class, "settings"])->name("settings");
-
-
-Route::get('/send', [SMSController::class, "send"])->name('sms.send');
-
-
-// work on the SMS feature
-// Link all the fronend pages (blades) perfectly.
+Route::post("/register", [RegisterController::class, "register"])->name("register");
+Route::post("/login", [LoginController::class, "login"])->name("login");

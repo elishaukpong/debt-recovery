@@ -3,49 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\SignInRequest;
-use App\Http\Requests\SignUpRequest;
-use App\Repository\Eloquent\AuthRepository;
 
 class AuthController extends Controller
 {
-    protected $authRepository;
-    protected const FALSE = false;
-    protected const TRUE = true;
-
-    public function __construct( AuthRepository $authRepository)
+    public function register()
     {
-        $this->authRepository = $authRepository;
+        return view ("register");
     }
 
-    public function signInPage(){
-        return view('Authentication.signin');
+    public function login()
+    {
+        return view("login");
     }
 
-    public function signUpPage(){
-        return view("Authentication.signup");
+    public function dashboard()
+    {
+        return view("index");
     }
 
-    public function signUp(SignUpRequest $request){
-        $signUpResponse = $this->authRepository->signUp($request->validated());
-
-
-        if($signUpResponse === self::FALSE) {
-            return view('register', ["message" => $signUpResponse['message']]);
-        }
-
-        return view("User.dashboard");
-
+    public function forgetPassword()
+    {
+        return view("forget-password");
     }
 
-    public function signIn(SignInRequest $request){
-        $signInResponse = $this->authRepository->signIn($request->validated());
-
-        if($signInResponse === self::FALSE) {
-            return view('Authentication.signup', ["message" => $signInResponse['message']]);
-        }
-
-        return view("User.dashboard");
+    public function resetPassword()
+    {
+        return view("reset-password");
     }
 }
