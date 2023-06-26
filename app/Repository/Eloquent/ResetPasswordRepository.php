@@ -10,12 +10,12 @@ use App\Notifications\ResetPasswordLinkNotification;
 class ResetPasswordRepository extends BaseRepository
 {
     protected $user;
-    protected const FALSE = false;
-    protected const TRUE = true;
+    protected $mail;
 
-    public function __construct(User $user)
+    public function __construct(User $user, Mail $mail)
     {
         $this->user = $user;
+        $this->mail = $mail;
     }
 
     public function sendLInk($data)
@@ -27,9 +27,9 @@ class ResetPasswordRepository extends BaseRepository
             "body" =>"No worries, click the button below to reset your password",
         ];
 
-        Mail::to($user->notify(new ResetPasswordLinkNotification($message)));
+        $this->mail->to($user->notify(new ResetPasswordLinkNotification($message)));
 
-        return self::TRUE;
+        return true;
 
     }
 
@@ -44,7 +44,7 @@ class ResetPasswordRepository extends BaseRepository
 
         if(!$user)
         {
-            return self::FALSE;
+            return true;
         }
 
         $message = [
@@ -52,9 +52,9 @@ class ResetPasswordRepository extends BaseRepository
             "body" => "Password Reset was Successful"
         ];
 
-        Mail::to($user->notify(new ResetPasswordNotification($message)));
+        $this->mail->to($user->notify(new ResetPasswordNotification($message)));
 
-        return self::TRUE;
+        return true;
 
 
     }

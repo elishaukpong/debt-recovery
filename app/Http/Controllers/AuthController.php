@@ -30,4 +30,11 @@ class AuthController extends Controller
     {
         return view("reset-password");
     }
+
+    public function logout(Request $request)
+    {
+        auth()->logout();
+
+        return redirect("/login");
+    }
 }
