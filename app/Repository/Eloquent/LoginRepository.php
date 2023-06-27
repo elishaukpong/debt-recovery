@@ -4,8 +4,8 @@ namespace App\Repository\Eloquent;
 use App\Repository\BaseRepository;
 use App\Models\User;
 
-class LoginRepository extends BaseRepository{
-
+class LoginRepository extends BaseRepository
+{
     protected $user;
 
     public function __construct(User $user)
@@ -13,10 +13,9 @@ class LoginRepository extends BaseRepository{
         $this->user = $user;
     }
 
-    public function login($data){
-
-        if(!auth()->attempt($data))
-        {
+    public function login($data)
+    {
+        if(! auth()->attempt($data)) {
             return false;
         }
 

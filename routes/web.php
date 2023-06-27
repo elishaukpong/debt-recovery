@@ -33,6 +33,5 @@ Route::post("/reset-link", [ResetPasswordController::class, 'sendLink'])->name("
 Route::post("/reset-password", [ResetPasswordController::class, 'resetPassword'])->name("reset_password");
 
 Route::middleware("auth:sanctum")->group(function(){
-
-    Route::get("/dashboard", [AuthController::class, "dashboard"])->name('index');
+    Route::get("/dashboard", [AuthController::class, "dashboard"])->name('dashboard.index');
 });

@@ -2,27 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use App\Repository\Eloquent\LoginRepository;
 
 class LoginController extends Controller
 {
-    protected $loginRepository;
-
-    public function __construct(LoginRepository $loginRepository)
-    {
-        $this->loginRepository = $loginRepository;
-    }
+    public function __construct(protected LoginRepository $loginRepository)
+    {}
 
     public function login(LoginRequest $request)
     {
-        $response = $this->loginRepository->login($request->validated());
-
-        if($response === false) {
-            return view('login', ["message" => "Login failed"]);
+        if(! $this->loginRepository->login($request->validated()) ) {
+            return redirect()->route('login')->with("message", "Login failed");
         }
 
-        return redirect("/dashboard");
+        return redirect()->route('dashboard.index');
     }
 }
