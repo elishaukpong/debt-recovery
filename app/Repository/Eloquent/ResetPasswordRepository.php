@@ -3,37 +3,27 @@ namespace App\Repository\Eloquent;
 
 use App\Models\User;
 use App\Repository\BaseRepository;
-use Illuminate\Support\Facades\Mail;
 use App\Notifications\ResetPasswordNotification;
 use App\Notifications\ResetPasswordLinkNotification;
 
 class ResetPasswordRepository extends BaseRepository
 {
-    protected $user;
-    protected $mail;
+    public function __construct(private User $user)
+    {}
 
-    public function __construct(User $user, Mail $mail)
-    {
-        $this->user = $user;
-        $this->mail = $mail;
-    }
-
-    public function sendLInk($data)
+    public function sendLink($data): bool
     {
         $user = $this->user->where('email', $data['email'])->first();
 
-        $message = [
+        $user->notify(new ResetPasswordLinkNotification([
             "title" => "Forgotten Your Password?",
             "body" =>"No worries, click the button below to reset your password",
-        ];
-
-        $this->mail->to($user->notify(new ResetPasswordLinkNotification($message)));
+        ]));
 
         return true;
-
     }
 
-    public function resetPassword($data)
+    public function resetPassword($data): bool
     {
         $user = $this->user->where('email', $data['email'])->first();
 
@@ -41,21 +31,11 @@ class ResetPasswordRepository extends BaseRepository
             "password" => bcrypt($data["password"])
         ]);
 
-
-        if(!$user)
-        {
-            return true;
-        }
-
-        $message = [
+        $user->notify(new ResetPasswordNotification([
             "title" => "Reset Password",
             "body" => "Password Reset was Successful"
-        ];
-
-        $this->mail->to($user->notify(new ResetPasswordNotification($message)));
+        ]));
 
         return true;
-
-
     }
 }

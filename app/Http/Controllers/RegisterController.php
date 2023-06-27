@@ -7,7 +7,7 @@ use App\Repository\Eloquent\RegisterRepository;
 
 class RegisterController extends Controller
 {
-    public function __construct(protected RegisterRepository $registerRepository)
+    public function __construct(private RegisterRepository $registerRepository)
     {}
 
     public function register(RegisterRequest $request)

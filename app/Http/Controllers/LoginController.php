@@ -7,7 +7,7 @@ use App\Repository\Eloquent\LoginRepository;
 
 class LoginController extends Controller
 {
-    public function __construct(protected LoginRepository $loginRepository)
+    public function __construct(private LoginRepository $loginRepository)
     {}
 
     public function login(LoginRequest $request)
