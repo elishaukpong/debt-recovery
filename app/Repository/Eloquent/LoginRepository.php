@@ -6,20 +6,8 @@ use App\Models\User;
 
 class LoginRepository extends BaseRepository
 {
-    protected $user;
-
-    public function __construct(User $user)
+    public function login(array $data): bool
     {
-        $this->user = $user;
+        return auth()->attempt($data);
     }
-
-    public function login($data)
-    {
-        if(! auth()->attempt($data)) {
-            return false;
-        }
-
-        return auth()->login($this->user->where("email", $data['email'])->first());
-    }
-
 }
