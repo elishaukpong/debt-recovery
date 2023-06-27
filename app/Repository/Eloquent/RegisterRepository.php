@@ -13,17 +13,15 @@ class RegisterRepository extends BaseRepository
         $this->user = $user;
     }
 
-    public function register($data)
+    public function register(array $data): bool
     {
         $data['password'] = bcrypt($data['password']);
 
-        if(!$this->user->create($data))
-        {
+        if( !$this->user->create($data) ) {
             return false;
         }
 
         auth()->login($this->user->where("email", $data['email'])->first());
-
 
         return true;
     }
