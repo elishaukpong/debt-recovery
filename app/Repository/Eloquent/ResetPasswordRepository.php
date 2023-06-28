@@ -12,10 +12,9 @@ class ResetPasswordRepository extends BaseRepository
     protected $user;
     protected $mail;
 
-    public function __construct(User $user, Mail $mail)
+    public function __construct(User $user)
     {
         $this->user = $user;
-        $this->mail = $mail;
     }
 
     public function sendLInk($data)
@@ -27,7 +26,7 @@ class ResetPasswordRepository extends BaseRepository
             "body" =>"No worries, click the button below to reset your password",
         ];
 
-        $this->mail->to($user->notify(new ResetPasswordLinkNotification($message)));
+         Mail::to($user->notify(new ResetPasswordLinkNotification($message)));
 
         return true;
 
@@ -52,7 +51,7 @@ class ResetPasswordRepository extends BaseRepository
             "body" => "Password Reset was Successful"
         ];
 
-        $this->mail->to($user->notify(new ResetPasswordNotification($message)));
+         Mail::to($user->notify(new ResetPasswordNotification($message)));
 
         return true;
 
