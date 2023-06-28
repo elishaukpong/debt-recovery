@@ -17,22 +17,19 @@ use App\Http\Controllers\ResetPasswordController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get("/register", [AuthController::class, "register"])->name('register');
+Route::post("/register", [RegisterController::class, "register"])->name("register");
+
 Route::get("/login", [AuthController::class, "login"])->name('login');
+Route::post("/login", [LoginController::class, "login"])->name("login");
+
 Route::get("/forget-password", [AuthController::class, "forgetPassword"])->name("forgetPassword");
 Route::get("/reset-password", [AuthController::class, "resetPassword"])->name("resetPassword");
 Route::post('/logout', [AuthController::class, "logout"])->name('logout');
 
-Route::post("/register", [RegisterController::class, "register"])->name("register");
-Route::post("/login", [LoginController::class, "login"])->name("login");
 Route::post("/reset-link", [ResetPasswordController::class, 'sendLink'])->name("send_link");
 Route::post("/reset-password", [ResetPasswordController::class, 'resetPassword'])->name("reset_password");
 
 Route::middleware("auth:sanctum")->group(function(){
-
-    Route::get("/dashboard", [AuthController::class, "dashboard"])->name('index');
+    Route::get("/dashboard", [AuthController::class, "dashboard"])->name('dashboard.index');
 });

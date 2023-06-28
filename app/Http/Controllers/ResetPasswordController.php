@@ -5,27 +5,21 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\ResetPasswordRequest;
 use App\Repository\Eloquent\ResetPasswordRepository;
-use Illuminate\Http\Request;
 
 class ResetPasswordController extends Controller
 {
+    public function __construct(private ResetPasswordRepository $resetPasswordRepository)
+    {}
 
-    protected $resetPasswordRepository;
-
-    public function __construct(ResetPasswordRepository $resetPasswordRepository)
+    public function sendLink(ResetPasswordRequest $request)
     {
-        $this->resetPasswordRepository = $resetPasswordRepository;
-    }
-
-    public function sendLink(ResetPasswordRequest $request){
-
         $this->resetPasswordRepository->sendLink($request->validated());
 
-        return redirect()->back();
+        return redirect()->back()->with('message','Password reset link has been sent!');
     }
 
-    public function resetPassword(ChangePasswordRequest $request){
-
+    public function resetPassword(ChangePasswordRequest $request)
+    {
         $this->resetPasswordRepository->resetPassword($request->validated());
 
         return redirect('/login');

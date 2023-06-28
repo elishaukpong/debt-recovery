@@ -36,7 +36,7 @@
             <form action="{{route('reset_password')}}" method="POST">
                 @csrf
               <div class="mb-3">
-                <input type="email" class="form-control" name="email" value="johndoe@gmail.com" readonly>
+                <input type="email" class="form-control" name="email" placeholder="Enter Email">
               </div>
 
               <div class="mb-3">
