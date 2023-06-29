@@ -28,13 +28,12 @@
             @if(count($errors) > 0)
                 @foreach( $errors->all() as $message )
                     <div class="alert alert-danger display-hide">
-                    {{-- <button class="close" data-close="alert"></button> --}}
                     <span>{{ $message }}</span>
                     </div>
                 @endforeach
             @endif
 
-            <form action="{{route("login")}}" method="POST">
+            <form action="{{ route("login") }}" method="POST">
                 @csrf
 
               <div class="mb-3">
@@ -49,24 +48,23 @@
                   mb-4">
                 <div class="form-check custom-checkbox">
                   <input type="checkbox" class="form-check-input" id="rememberme">
-                  <label class="form-check-label" for="rememberme">Remember
-                      me</label>
+                  <label class="form-check-label" for="rememberme">Remember me</label>
                 </div>
 
               </div>
 
               <div>
                 <div class="d-grid">
-                  <button type="submit" class="btn btn-primary">login</button>
+                  <button type="submit" class="btn btn-primary">Login</button>
                 </div>
 
                 <div class="d-md-flex justify-content-between mt-4">
                   <div class="mb-2 mb-md-0">
-                    <a href="{{route("register")}}" class="fs-5">Create An
+                    <a href="{{ route("register") }}" class="fs-5">Create An
                         Account </a>
                   </div>
                   <div>
-                    <a href="{{route("forgetPassword")}}" class="text-inherit
+                    <a href="{{ route("forgetPassword") }}" class="text-inherit
                         fs-5">Forgot your password?</a>
                   </div>
 

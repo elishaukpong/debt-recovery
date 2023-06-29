@@ -7,7 +7,7 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset("assets/images/favicon/favicon.ico")}}">
 
-    <link href="{{asset("node_modules/bootstrap-icons/font/bootstrap-icons.css")}}" rel="stylesheet">
+    <link href="{{ asset("node_modules/bootstrap-icons/font/bootstrap-icons.css") }}" rel="stylesheet">
     <link href="{{ asset ("node_modules/dropzone/dist/dropzone.css") }}"  rel="stylesheet">
     <link href="{{ asset("node_modules/@mdi/font/css/materialdesignicons.min.css") }}" rel="stylesheet" />
     <link href="{{ asset("node_modules/prismjs/themes/prism-okaidia.css") }}" rel="stylesheet">
@@ -32,78 +32,18 @@
             </li>
 
 
-         {{-- <li class="nav-item">
-            <div class="navbar-heading">Layouts &amp; Pages</div>
-        </li> --}}
-
-
-             <li class="nav-item mb-3">
-                <a class="nav-link has-arrow  collapsed " href="#!" data-bs-toggle="collapse" data-bs-target="#navPages" aria-expanded="false" aria-controls="navPages">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers nav-icon icon-xs me-2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                    Email Reminders
-                </a>
-
-                <div id="navPages" class="collapse " data-bs-parent="#sideNavbar">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link " href="./pages/profile.html">
-                                Profile
+                        <li class="nav-item mb-3">
+                            <a class="nav-link " href="./pages/layout.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sidebar nav-icon icon-xs me-2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                                Email Reminders
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link has-arrow   " href="./pages/settings.html">
-                                Settings
-                            </a>
-
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a class="nav-link " href="./pages/billing.html">
-                                Billing
-                            </a>
-                        </li>
-
-
-
-
-                        <li class="nav-item">
-                            <a class="nav-link " href="./pages/pricing.html">
-                               Pricing
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="./pages/404-error.html">
-                                404 Error
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                </li>
-
 
                         <li class="nav-item mb-3">
-                            <a class="nav-link has-arrow  collapsed " href="#!" data-bs-toggle="collapse" data-bs-target="#navAuthentication" aria-expanded="false" aria-controls="navAuthentication">
+                            <a class="nav-link " href="./pages/layout.html">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock nav-icon icon-xs me-2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                                 SMS Reminders
                             </a>
-                            <div id="navAuthentication" class="collapse " data-bs-parent="#sideNavbar">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="./pages/sign-in.html"> Sign In</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link  " href="./pages/sign-up.html"> Sign Up</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="./pages/forget-password.html">
-                                             Forget Password
-                                </a>
-                                    </li>
-
-                                </ul>
-                            </div>
                         </li>
                         <li class="nav-item mb-3">
                             <a class="nav-link " href="./pages/layout.html">
@@ -112,86 +52,11 @@
                             </a>
                         </li>
 
-                        {{-- <li class="nav-item">
-                            <div class="navbar-heading">UI Components</div>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link has-arrow " href="./docs/accordions.html">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-package nav-icon icon-xs me-2"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>  Components
-                            </a>
-                         </li>
-
-
-                        <li class="nav-item">
-                            <a class="nav-link has-arrow  collapsed " href="#!" data-bs-toggle="collapse" data-bs-target="#navMenuLevel" aria-expanded="false" aria-controls="navMenuLevel">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-corner-left-down nav-icon icon-xs me-2"><polyline points="14 15 9 20 4 15"></polyline><path d="M20 4h-7a4 4 0 0 0-4 4v12"></path></svg> Menu Level
-                            </a>
-                            <div id="navMenuLevel" class="collapse " data-bs-parent="#sideNavbar">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link has-arrow " href="#!" data-bs-toggle="collapse" data-bs-target="#navMenuLevelSecond" aria-expanded="false" aria-controls="navMenuLevelSecond">
-                                    Two Level
-                                </a>
-                                        <div id="navMenuLevelSecond" class="collapse" data-bs-parent="#navMenuLevel">
-                                            <ul class="nav flex-column">
-                                                <li class="nav-item">
-                                                    <a class="nav-link " href="#!">  NavItem 1</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link " href="#!">  NavItem 2</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link has-arrow  collapsed  " href="#!" data-bs-toggle="collapse" data-bs-target="#navMenuLevelThree" aria-expanded="false" aria-controls="navMenuLevelThree">
-                                    Three Level
-                                </a>
-                                        <div id="navMenuLevelThree" class="collapse " data-bs-parent="#navMenuLevel">
-                                            <ul class="nav flex-column">
-                                                <li class="nav-item">
-                                                    <a class="nav-link  collapsed " href="#!" data-bs-toggle="collapse" data-bs-target="#navMenuLevelThreeOne" aria-expanded="false" aria-controls="navMenuLevelThreeOne">
-                                                         NavItem 1
-                                            </a>
-                                                    <div id="navMenuLevelThreeOne" class="collapse collapse " data-bs-parent="#navMenuLevelThree">
-                                                        <ul class="nav flex-column">
-                                                            <li class="nav-item">
-                                                                <a class="nav-link " href="#!">
-                                                                     NavChild Item 1
-                                                        </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link " href="#!">  Nav Item 2</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-
-                        <li class="nav-item">
-                            <div class="navbar-heading">Documentation</div>
-                        </li> --}}
-
                         <li class="nav-item mb-3">
                             <a class="nav-link has-arrow " href="./docs/index.html">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard nav-icon icon-xs me-2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
                                 Settings
                             </a>
-                         </li>
-                         <li class="nav-item">
-                            <form action="{{route('logout')}}" method="POST">
-                                @csrf
-                                <a class="nav-link has-arrow " href="">
-                                    {{-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-git-pull-request nav-icon icon-xs me-2"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" y1="9" x2="6" y2="21"></line></svg> --}}
-                                    <button type="submit" style="background-color: black; color:grey">logout</button>
-                                </a>
-                            </form>
                          </li>
 
 
@@ -218,12 +83,12 @@
 
                       class="nav-icon me-2 icon-xs"></i></a>
                   <div class="ms-lg-3 d-none d-md-none d-lg-block">
-                    <!-- Form -->
+
                     <form class="d-flex align-items-center">
                       <input type="search" class="form-control" placeholder="Search" />
                     </form>
                   </div>
-                  <!--Navbar nav -->
+
                   <ul class="navbar-nav navbar-right-wrap ms-auto d-flex nav-top-wrap">
                     <li class="dropdown stopevent">
                         <a class="btn btn-light btn-icon rounded-circle indicator indicator-primary text-muted show" href="#" role="button" id="dropdownNotification" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -241,9 +106,9 @@
                               </span>
                             </a>
                           </div>
-                          <!-- List group -->
+
                           <ul class="list-group list-group-flush notification-list-scroll">
-                            <!-- List group item -->
+
                             <li class="list-group-item bg-light">
 
 
@@ -253,11 +118,8 @@
                                     Mauris blandit erat id nunc blandit, ac eleifend dolor pretium.
                                   </p>
                               </a>
+                            </li>
 
-
-
-                        </li>
-                           <!-- List group item -->
                            <li class="list-group-item">
 
 
@@ -271,7 +133,7 @@
 
 
                       </li>
-                            <!-- List group item -->
+
                             <li class="list-group-item">
 
 
@@ -285,7 +147,7 @@
 
 
                         </li>
-                            <!-- List group item -->
+
                             <li class="list-group-item">
 
 
@@ -308,7 +170,7 @@
                         </div>
                       </div>
                     </li>
-                    <!-- List -->
+
                     <li class="dropdown ms-2">
                       <a class="rounded-circle" href="#" role="button" id="dropdownUser"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -368,6 +230,14 @@
                         </ul>
 
                       </div>
+                    </li>
+                    <li class="dropdown ms-2">
+                        <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+
+                            <button type="submit" style="background-color: white; border-color: white"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z"/></svg></button>
+                        </form>
+
                     </li>
                   </ul>
                 </nav>

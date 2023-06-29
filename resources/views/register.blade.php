@@ -38,7 +38,7 @@
                 </div>
             @endif
 
-            <form action="{{route("register")}}" method="POST">
+            <form action="{{ route("register") }}" method="POST">
                 @csrf
 
               <div class="mb-3">
@@ -85,11 +85,11 @@
 
                 <div class="d-md-flex justify-content-between mt-4">
                   <div class="mb-2 mb-md-0">
-                    <a href="{{route("login")}}" class="fs-5">Already
+                    <a href="{{ route("login")  }}" class="fs-5">Already
                         member? Login </a>
                   </div>
                   <div>
-                    <a href="{{route("forgetPassword")}}" class="text-inherit
+                    <a href="{{ route("forgetPassword") }}" class="text-inherit
                         fs-5">Forgot your password?</a>
                   </div>
 
