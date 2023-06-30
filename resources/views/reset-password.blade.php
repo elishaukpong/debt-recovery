@@ -1,23 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('Layouts.master')
+@section('content')
 
-<head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-      <link rel="shortcut icon" type="image/x-icon" href="{{ asset("assets/images/favicon/favicon.ico")}}">
-
-      <link href="{{asset("node_modules/bootstrap-icons/font/bootstrap-icons.css")}}" rel="stylesheet">
-      <link href="{{ asset ("node_modules/dropzone/dist/dropzone.css") }}"  rel="stylesheet">
-      <link href="{{ asset("node_modules/@mdi/font/css/materialdesignicons.min.css") }}" rel="stylesheet" />
-      <link href="{{ asset("node_modules/prismjs/themes/prism-okaidia.css") }}" rel="stylesheet">
-
-      <link rel="stylesheet" href="{{ asset("assets/css/theme.css") }}">
-
-    <title>Reset Password</title>
-</head>
-
-<body class="bg-light">
   <div class="container d-flex flex-column">
     <div class="row align-items-center justify-content-center g-0
         min-vh-100">
@@ -32,11 +15,18 @@
               </p>
             </div>
 
+            @if(count($errors) > 0)
+                @foreach( $errors->all() as $message )
+                    <div class="alert alert-danger display-hide">
+                    <span>{{ $message }}</span>
+                    </div>
+                @endforeach
+            @endif
 
             <form action="{{route('reset_password')}}" method="POST">
                 @csrf
               <div class="mb-3">
-                <input type="email" class="form-control" name="email" placeholder="Enter Email">
+                <input type="email" class="form-control" name="email" placeholder="Enter Email" value="{{ request()-> email }}" readonly>
               </div>
 
               <div class="mb-3">
@@ -52,8 +42,6 @@
                     Reset Password
                 </button>
               </div>
-
-              {{-- <span>Already have an account? <a href="{{route("login")}}">login</a></span> --}}
             </form>
           </div>
         </div>
@@ -61,32 +49,4 @@
     </div>
   </div>
 
-  <!-- Scripts -->
-  {{-- @@include("../partials/scripts.html" --}}
-
-   <!-- Libs JS -->
-   <script src="@@webRoot/node_modules/jquery/dist/jquery.min.js"></script>
-   <script src="@@webRoot/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-   <script src="@@webRoot/node_modules/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-   <script src="@@webRoot/node_modules/feather-icons/dist/feather.min.js"></script>
-   <script src="@@webRoot/node_modules/prismjs/prism.js"></script>
-   <script src="@@webRoot/node_modules/apexcharts/dist/apexcharts.min.js"></script>
-   <script src="@@webRoot/node_modules/dropzone/dist/min/dropzone.min.js"></script>
-   <script src="@@webRoot/node_modules/prismjs/plugins/toolbar/prism-toolbar.min.js"></script>
-   <script src="@@webRoot/node_modules/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
-
-
-
-
-   <!-- Theme JS -->
-   <!-- build:js @@webRoot/assets/js/theme.min.js -->
-   <script src="{{ asset("assets/js/main.js") }}"></script>
-   <script src="{{ asset("assets/js/feather.js") }}"></script>
-   <script src="{{ asset ("assets/js/sidebarMenu.js") }}"></script>
-
-
-
-    <!-- endbuild -->
-</body>
-
-</html>
+@endsection

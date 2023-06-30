@@ -37,7 +37,7 @@ class ResetPasswordLinkNotification extends Notification
         return (new MailMessage)
                     ->line($this->message["title"])
                     ->line($this->message['body'])
-                    ->action('Reset', url('/reset-password'));
+                    ->action('Reset Password', $this->message['url']);
     }
 
     /**
