@@ -18,6 +18,7 @@ class ResetPasswordRepository extends BaseRepository
         $user->notify(new ResetPasswordLinkNotification([
             "title" => "Forgotten Your Password?",
             "body" =>"No worries, click the button below to reset your password",
+            'url' => url('/reset-password', $user->email)
         ]));
 
         return true;

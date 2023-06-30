@@ -3,7 +3,6 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
@@ -38,7 +37,7 @@ class ResetPasswordLinkNotification extends Notification
         return (new MailMessage)
                     ->line($this->message["title"])
                     ->line($this->message['body'])
-                    ->action('Reset', url('/reset-password'));
+                    ->action('Reset Password', $this->message['url']);
     }
 
     /**

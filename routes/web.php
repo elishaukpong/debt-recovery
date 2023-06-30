@@ -17,14 +17,14 @@ use App\Http\Controllers\ResetPasswordController;
 |
 */
 
-Route::get("/register", [AuthController::class, "register"])->name('register');
+Route::get("/", [AuthController::class, "register"])->name('register');
 Route::post("/register", [RegisterController::class, "register"])->name("register");
 
 Route::get("/login", [AuthController::class, "login"])->name('login');
 Route::post("/login", [LoginController::class, "login"])->name("login");
 
 Route::get("/forget-password", [AuthController::class, "forgetPassword"])->name("forgetPassword");
-Route::get("/reset-password", [AuthController::class, "resetPassword"])->name("resetPassword");
+Route::get("/reset-password/{email}", [AuthController::class, "resetPassword"])->name("resetPassword");
 Route::post('/logout', [AuthController::class, "logout"])->name('logout');
 
 Route::post("/reset-link", [ResetPasswordController::class, 'sendLink'])->name("send_link");

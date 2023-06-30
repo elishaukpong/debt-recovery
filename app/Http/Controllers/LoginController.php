@@ -12,10 +12,9 @@ class LoginController extends Controller
 
     public function login(LoginRequest $request)
     {
-        $errors = ["Login Credentials are invalid"];
-
         if(! $this->loginRepository->login($request->validated()) ) {
             return redirect()->route('login')
-                ->withErrors($errors);
+                ->withErrors("Login Credentials are invalid");
+        }
     }
 }
