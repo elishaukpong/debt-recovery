@@ -16,7 +16,5 @@ class LoginController extends Controller
             return redirect()->route('login')
                 ->withErrors("Login Credentials are invalid");
         }
-
-        return redirect()->route('dashboard.index');
     }
 }
