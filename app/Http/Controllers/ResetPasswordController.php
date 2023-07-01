@@ -14,7 +14,6 @@ class ResetPasswordController extends Controller
     public function sendLink(ResetPasswordRequest $request)
     {
         if(! $this->resetPasswordRepository->sendLink($request->validated())){
-
             return redirect()->back()->withErrors('Password reset link not sent');
         }
 
@@ -25,7 +24,6 @@ class ResetPasswordController extends Controller
     public function resetPassword(ChangePasswordRequest $request)
     {
         if(! $this->resetPasswordRepository->resetPassword($request->validated())){
-
             return redirect()->back()->withErrors('Password Could Not Be Reset');
         }
 
