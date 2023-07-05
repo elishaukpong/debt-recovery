@@ -17,18 +17,18 @@ use App\Http\Controllers\ResetPasswordController;
 |
 */
 
-Route::get("/", [AuthController::class, "register"])->name('register');
-Route::post("/register", [RegisterController::class, "register"])->name("register");
+Route::get("/", [RegisterController::class, "register"])->name('register');
+Route::post("/register", [RegisterController::class, "registration"])->name("register");
 
-Route::get("/login", [AuthController::class, "login"])->name('login');
-Route::post("/login", [LoginController::class, "login"])->name("login");
+Route::get("/login", [LoginController::class, "login"])->name('login');
+Route::post("/login", [LoginController::class, "loggingIn"])->name("login");
 
-Route::get("/forget-password", [AuthController::class, "forgetPassword"])->name("forgetPassword");
-Route::get("/reset-password/{email}", [AuthController::class, "resetPassword"])->name("resetPassword");
 Route::post('/logout', [AuthController::class, "logout"])->name('logout');
 
-Route::post("/reset-link", [ResetPasswordController::class, 'sendLink'])->name("send_link");
-Route::post("/reset-password", [ResetPasswordController::class, 'resetPassword'])->name("reset_password");
+Route::get("/forget-password", [ResetPasswordController::class, "forgetPassword"])->name("password.forget");
+Route::get("/reset-password", [ResetPasswordController::class, "resetPasswordView"])->name("password.reset")->middleware('signed');
+Route::post("/reset-link", [ResetPasswordController::class, 'sendLink'])->name("link.send");
+Route::post("/reset-password", [ResetPasswordController::class, 'resetPassword'])->name("password.reset");
 
 Route::middleware("auth:sanctum")->group(function(){
     Route::get("/dashboard", [AuthController::class, "dashboard"])->name('dashboard.index');

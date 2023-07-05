@@ -58,7 +58,7 @@
                         Account </a>
                     </div>
                     <div>
-                    <a href="{{ route("forgetPassword") }}" class="text-inherit
+                    <a href="{{ route("password.forget") }}" class="text-inherit
                         fs-5">Forgot your password?</a>
                     </div>
 

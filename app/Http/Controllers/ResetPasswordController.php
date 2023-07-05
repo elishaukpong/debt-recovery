@@ -11,6 +11,16 @@ class ResetPasswordController extends Controller
     public function __construct(private ResetPasswordRepository $resetPasswordRepository)
     {}
 
+    public function forgetPassword()
+    {
+        return view("forget-password");
+    }
+
+    public function resetPasswordView()
+    {
+        return view("reset-password");
+    }
+
     public function sendLink(ResetPasswordRequest $request)
     {
         if(! $this->resetPasswordRepository->sendLink($request->validated())){

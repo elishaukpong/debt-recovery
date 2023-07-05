@@ -23,7 +23,7 @@
                 @endforeach
             @endif
 
-            <form action="{{route('reset_password')}}" method="POST">
+            <form action="{{route('password.reset')}}" method="POST">
                 @csrf
               <div class="mb-3">
                 <input type="email" class="form-control" name="email" placeholder="Enter Email" value="{{ request()-> email }}" readonly>

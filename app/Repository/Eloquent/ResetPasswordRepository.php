@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Repository\BaseRepository;
 use App\Notifications\ResetPasswordNotification;
 use App\Notifications\ResetPasswordLinkNotification;
+use Illuminate\Support\Facades\URL;
 
 class ResetPasswordRepository extends BaseRepository
 {
@@ -18,8 +19,9 @@ class ResetPasswordRepository extends BaseRepository
         $user->notify(new ResetPasswordLinkNotification([
             "title" => "Forgotten Your Password?",
             "body" =>"No worries, click the button below to reset your password",
-            'url' => url('/reset-password', $user->email)
+            'url' => URL::signedRoute('password.reset',  ['email' => $user->email], now()->addMinutes(2)),
         ]));
+
 
         return true;
     }
