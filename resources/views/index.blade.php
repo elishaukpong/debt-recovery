@@ -1,18 +1,18 @@
 @extends('Layouts.master')
 @section('content')
 
-    <nav class="navbar-vertical navbar">
-        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 97%;"><div class="nav-scroller" style="overflow: hidden; width: auto; height: 97%;">
+    <nav class="navbar-vertical navbar" id="navbar-vertical navbar" style="display: block">
+        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 97%;">
+            <div class="nav-scroller" style="overflow: hidden; width: auto; height: 97%;">
 
             <a class="navbar-brand" href="./index.html">
-                {{-- <img src="./assets/images/brand/logo/logo.svg" alt=""> --}}
                 <h3 class="text-light">Debt Recovery</h3>
             </a>
 
             <ul class="navbar-nav flex-column" id="sideNavbar">
                 <li class="nav-item mb-3">
                     <a class="nav-link has-arrow  active " href="./index.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home nav-icon icon-xs me-2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>  Dashboard
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home nav-icon icon-xs me-2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>  Dashboard
                     </a>
 
                 </li>
@@ -34,7 +34,7 @@
                             <li class="nav-item mb-3">
                                 <a class="nav-link " href="./pages/layout.html">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sidebar nav-icon icon-xs me-2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
-                                    Debts
+                                    Debtors
                                 </a>
                             </li>
 
@@ -58,17 +58,21 @@
             <div class="header @@classList">
 
                 <nav class="navbar-classic navbar navbar-expand-lg">
-                  <a id="nav-toggle" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu nav-icon me-2 icon-xs"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-                    <i
-                      data-feather="menu"
+                  <div class="d-flex">
+                    <a id="nav-toggle" href="#" onclick="toggleMenu()" class="mt-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu nav-icon me-2 icon-xs"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                        <i
+                          data-feather="menu"
 
-                      class="nav-icon me-2 icon-xs"></i></a>
-                  <div class="ms-lg-3 d-none d-md-none d-lg-block">
+                          class="nav-icon me-2 icon-xs">
+                        </i>
+                      </a>
+                      <div class="ms-lg-3 d-none d-md-none d-lg-block">
 
-                    <form class="d-flex align-items-center">
-                      <input type="search" class="form-control" placeholder="Search" />
-                    </form>
+                        <form class="d-flex align-items-center">
+                          <input type="search" class="form-control" placeholder="Search" />
+                        </form>
+                      </div>
                   </div>
 
                   <ul class="navbar-nav navbar-right-wrap ms-auto d-flex nav-top-wrap">
@@ -182,14 +186,6 @@
                             </a>
                           </li>
 
-                          <li>
-                            <a class="dropdown-item"
-                              href="#">
-                              <i class="me-2 icon-xxs dropdown-item-icon"
-                                data-feather="activity"></i>Activity Log
-                            </a>
-                          </li>
-
 
                           <li>
                               <form action="{{ route('logout') }}" method="POST">
@@ -212,5 +208,9 @@
 
         </div>
     </div>
+
+    @extends("Layouts.script")
+    @section('script')
+    @endsection
 
 @endsection
