@@ -28,7 +28,7 @@
                     </div>
                 @endforeach
             @endif
-            <form action={{route("send_link")}} method="POST">
+            <form action={{route("link.send")}} method="POST">
                 @csrf
               <div class="mb-3">
                 <input type="email" id="email" class="form-control" name="email" placeholder="Enter Your Email" required="">

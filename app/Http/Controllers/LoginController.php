@@ -10,7 +10,12 @@ class LoginController extends Controller
     public function __construct(private LoginRepository $loginRepository)
     {}
 
-    public function login(LoginRequest $request)
+    public function login()
+    {
+        return view("login");
+    }
+
+    public function loggingIn(LoginRequest $request)
     {
         if(! $this->loginRepository->login($request->validated()) ) {
             return redirect()->route('login')

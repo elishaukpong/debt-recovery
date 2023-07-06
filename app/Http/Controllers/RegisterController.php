@@ -9,8 +9,14 @@ class RegisterController extends Controller
 {
     public function __construct(private RegisterRepository $registerRepository)
     {}
+    
 
-    public function register(RegisterRequest $request)
+    public function register()
+    {
+        return view ("register");
+    }
+
+    public function registration(RegisterRequest $request)
     {
         if(! $this->registerRepository->register($request->validated())) {
             return redirect()->back()
@@ -19,4 +25,6 @@ class RegisterController extends Controller
 
         return redirect()->route('dashboard.index');
     }
+
+
 }
