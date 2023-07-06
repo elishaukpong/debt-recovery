@@ -10,7 +10,6 @@ class RegisterController extends Controller
     public function __construct(private RegisterRepository $registerRepository)
     {}
 
-
     public function register(RegisterRequest $request)
     {
         if(! $this->registerRepository->register($request->validated())) {
