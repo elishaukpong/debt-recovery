@@ -24,7 +24,8 @@ class DebtorController extends Controller
             return redirect()->back()->withErrors("Debtor was not created");
         }
 
-        return redirect()->back()->with('message', "Debtor Successfully Created");
+        // return redirect()->back()->with('message', "Debtor Successfully Created");
+        return redirect()->route("debtors")->with('message', "Debtor Successfully Created");
     }
 
     public function getAll(){
@@ -33,5 +34,16 @@ class DebtorController extends Controller
         }
 
         return view("debtors", ["debtors" => $this->debtorRepository->getAll()]);
+    }
+
+    public function editForm(){
+        return view("debtor-edit-form");
+    }
+
+    public function edit(Request $request){
+        if(! $this->debtorRepository->edit($request->validated()) ){
+            return redirect()->back()->withErrors("Debtor was not created");
+        }
+        return redirect()->route("debtors")->with('message', "Debtor Successfully Created");
     }
 }

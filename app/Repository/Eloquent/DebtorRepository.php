@@ -3,7 +3,6 @@ namespace App\Repository\Eloquent;
 
 use App\Models\Debtor;
 use App\Repository\BaseRepository;
-use App\Models\User;
 
 class DebtorRepository extends BaseRepository
 {
@@ -30,5 +29,16 @@ class DebtorRepository extends BaseRepository
         }
 
         return $debtor;
+    }
+
+    public function edit(array $data): bool
+    {
+        $data["user_id"] = auth()->user()->id;
+
+        if(!$this->debtor->update($data) ){
+            return false;
+        }
+
+        return true;
     }
 }

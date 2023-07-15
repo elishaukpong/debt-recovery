@@ -25,7 +25,7 @@ class DebtorRequest extends FormRequest
             "first_name" => "required",
             "last_name" => "required",
             "email" => 'required',
-            "phone_number" => "required",
+            "phone_number" => "required|max:11|min:8",
             "currency" =>"required",
             "amount" => "required",
             "due_date" => "required"

@@ -37,4 +37,6 @@ Route::middleware("auth:sanctum")->group(function(){
     Route::get('/debtor-form', [DebtorController::class, "form"])->name('debtor.form');
     Route::post('/debtor/create', [DebtorController::class, 'create'])->name("debtor.create");
     Route::get('/debtors', [DebtorController::class, 'getAll'])->name("debtors");
+    Route::get('/debtors/edit', [DebtorController::class, 'editForm'])->name("debtor.editform");
+    Route::post('/debtors/edit', [DebtorController::class, 'edit'])->name("debtor.edit");
 });

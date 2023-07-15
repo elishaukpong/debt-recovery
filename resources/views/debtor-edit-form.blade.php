@@ -44,7 +44,7 @@
 
 
                             </div>
-                            <form action="{{ route("debtor.create") }}" method="POST">
+                            <form action="{{ route("debtor.edit") }}" method="PUT">
                                 @csrf
 
                                 <div class="mb-3 row">
@@ -105,12 +105,11 @@
                                     </div>
                                 </div>
 
-
                                 <div class="row align-items-center">
 
                                     <div class="offset-md-4 col-md-8 mt-4">
                                         <button type="submit" class="btn btn-primary">
-                                           Save
+                                           Edit
                                         </button>
                                     </div>
                                 </div>
@@ -123,115 +122,4 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-    {{-- <div class="container-fluid p-6">
-        <div class="row">
-        <div class="col-lg-12 col-md-12 col-12">
-            <!-- Page header -->
-
-            <div class="border-bottom pb-4 mb-4">
-
-                <h3 class="mb-0 fw-bold">Debtors</h3>
-
-                <div class="col-12 mb-6">
-                    <!-- card  -->
-                    <div class="card">
-                    <!-- card header  -->
-                    <div class="card-header p-4 bg-white">
-                        <h4 class="mb-0">Billing address</h4>
-                    </div>
-                    <!-- card body  -->
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                        <div class="col-lg-6 col-md-12 col-12 mb-4 mb-lg-0">
-                            <div class="mb-3 mb-lg-0">
-                            <!-- radio  -->
-                            <div class="form-check ">
-                                <input type="radio" id="shippingBillingAddress" name="customRadio" class="form-check-input" checked>
-                                <label class="form-check-label" for="shippingBillingAddress">
-                                    <span class="d-block mb-3 text-dark
-                                    fw-bold">Shipping Billing Address
-                                    </span>
-                                    <span class="d-block text-dark
-                                    fw-medium fs-4">Valarie
-                                    Tarrant</span>
-                                    <span class="d-block mb-4">3757 Morgan Street
-                                    Tallahassee, FL 32301</span>
-                                    <a href="#" class="me-2 link-success">Edit</a>
-                                    <a href="#" class="me-2 link-danger">Delete</a>
-                                    <a href="#" class="me-2 text-muted
-                                    text-primary-hover">Remove as Default Billing</a>
-                                </label>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12 col-12 d-flex
-                            justify-content-lg-end">
-                            <!-- text  -->
-                            <div class="mb-2">
-                            <p class="mb-1">E-mail: <a href="#">valarietarrant@dashui.com</a></p>
-                            <p>Phone: 321-654-0987</p>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <!-- hr  -->
-                            <hr class="my-6">
-                        </div>
-                        <div class="col-lg-6 col-md-12 col-12 mb-4 mb-lg-0">
-                            <!-- radio  -->
-                            <div class="form-check ">
-                            <input type="radio" id="customRadio2" name="customRadio" class="form-check-input">
-                            <label class="form-check-label" for="customRadio2">
-                                <span class="d-block mb-3 text-dark
-                                    fw-bold">Default Billing Address
-                                </span>
-                                <span class="d-block text-dark fw-medium
-                                    fs-4">Mildred Cantu</span>
-                                <span class="d-block mb-4">3757 Morgan Street
-                                    Tallahassee, FL 32301</span>
-                                <a href="#" class="me-2 link-success">Edit</a>
-                                <a href="#" class="me-2 link-danger">Delete</a>
-                                <a href="#" class="me-2 text-muted
-                                    text-primary-hover">Set as Default</a>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12 col-12 d-flex
-                            justify-content-lg-end">
-                            <!-- text  -->
-                            <div class="mb-2">
-                            <p class="mb-1">E-mail: <a href="#">valarietarrant@dashui.com</a></p>
-                            <p>Phone: 321-654-0987</p>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <!-- hr  -->
-                            <hr class="mt-6 mb-4">
-                        </div>
-                        <div class="col-12">
-                            <!-- button  -->
-                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#billingAddressModal">Add New Address</a>
-                        </div>
-                        </div>
-                    </div>
-
-                    </div>
-                </div>
-
-                </div>
-
-            </div>
-        </div>
-
-    </div> --}}
 @endsection
