@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DebtorController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ResetPasswordController;
@@ -17,7 +18,7 @@ use App\Http\Controllers\ResetPasswordController;
 |
 */
 
-Route::get("/", [RegisterController::class, "register"])->name('register');
+Route::get("/register", [RegisterController::class, "register"])->name('register');
 Route::post("/register", [RegisterController::class, "registration"])->name("register");
 
 Route::get("/login", [LoginController::class, "login"])->name('login');
@@ -32,4 +33,8 @@ Route::post("/reset-password", [ResetPasswordController::class, 'resetPassword']
 
 Route::middleware("auth:sanctum")->group(function(){
     Route::get("/dashboard", [AuthController::class, "dashboard"])->name('dashboard.index');
+
+    Route::get('/debtor-form', [DebtorController::class, "form"])->name('debtor.form');
+    Route::post('/debtor/create', [DebtorController::class, 'create'])->name("debtor.create");
+    Route::get('/debtors', [DebtorController::class, 'getAll'])->name("debtors");
 });
