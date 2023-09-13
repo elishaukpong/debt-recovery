@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\DebtorRequest;
 use App\Models\Debtor;
 use App\Repository\Eloquent\DebtorRepository;
-use Illuminate\Http\Request;
 
 class DebtorController extends Controller
 {
@@ -40,9 +39,6 @@ class DebtorController extends Controller
             return redirect()->route("debtors")->withErrors("Unable to Get Debtor");
         }
         return view("debtor-edit-form", ["debtor" => $this->debtorRepository->getId($debtorId)]);
-        // return redirect('debtor-edit-form')->withInput(
-        //     $request->except('password')
-        // );
     }
 
     public function edit(DebtorRequest $request, int $debtorId){

@@ -33,17 +33,6 @@ class DebtorRepository extends BaseRepository
 
     public function edit(array $data, $debtorId)
     {
-        // // dd($data);
-        // $debtor = $this->debtor->find($debtorId);
-        // dd($debtor);
-        // $data["user_id"] = auth()->user()->id;
-
-        // if(!$this->debtor->where("id", $debtorId)->update($data)){
-        //     return false;
-        // }
-
-        // return true;
-
         return $this->debtor->where("id", $debtorId)->update(array_merge(["user_id" => auth()->id()], $data));
     }
 
