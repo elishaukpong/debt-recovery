@@ -173,7 +173,7 @@
 
                           <div class="lh-1 ">
                             <h5 class="mb-1"> {{ auth()->user()->first_name ." ".auth()->user()->last_name }} </h5>
-                            <a href="#" class="text-inherit fs-6">View my profile</a>
+                            <a href="{{route('profile')}}" class="text-inherit fs-6">View my profile</a>
                           </div>
                           <div class=" dropdown-divider mt-3 mb-2"></div>
                         </div>
@@ -181,7 +181,7 @@
                         <ul class="list-unstyled">
 
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{route('profile.editpage')}}">
                               <i class="me-2 icon-xxs dropdown-item-icon" data-feather="user"></i>Edit
                               Profile
                             </a>

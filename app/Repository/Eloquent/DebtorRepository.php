@@ -16,7 +16,7 @@ class DebtorRepository extends BaseRepository
 
     public function create(array $data): Debtor
     {
-        return $this->debtor->create(array_merge(["user_id" => auth()->id()],$data));
+        return $this->debtor->create(array_merge(["user_id" => auth()->id()], $data));
     }
 
     public function index(): object{
