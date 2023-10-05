@@ -19,6 +19,13 @@
                 </li>
 
                 <li class="nav-item mb-3">
+                    <a class="nav-link " href="{{route("reminder.schedule")}}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sidebar nav-icon icon-xs me-2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                        Reminder Schedule
+                    </a>
+                </li>
+
+                <li class="nav-item mb-3">
                     <a class="nav-link " href="./pages/layout.html">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sidebar nav-icon icon-xs me-2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
                         Email Reminders
@@ -173,7 +180,7 @@
 
                           <div class="lh-1 ">
                             <h5 class="mb-1"> {{ auth()->user()->first_name ." ".auth()->user()->last_name }} </h5>
-                            <a href="#" class="text-inherit fs-6">View my profile</a>
+                            <a href="{{route('profile')}}" class="text-inherit fs-6">View my profile</a>
                           </div>
                           <div class=" dropdown-divider mt-3 mb-2"></div>
                         </div>
@@ -181,7 +188,7 @@
                         <ul class="list-unstyled">
 
                           <li>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{route('profile.editpage')}}">
                               <i class="me-2 icon-xxs dropdown-item-icon" data-feather="user"></i>Edit
                               Profile
                             </a>

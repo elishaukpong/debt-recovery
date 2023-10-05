@@ -13,6 +13,17 @@ class DebtorController extends Controller
         $this->debtorRepository = $debtorRepository;
     }
 
+
+    public function dashboard()
+    {
+
+        if(! $this->debtorRepository->index()){
+            return redirect()->route("debtors")->withErrors("Unable to Get Debtors");
+        }
+
+        return view("index", ["debtors" => $this->debtorRepository->index()]);
+    }
+
     public function displayForm(){
         return view("debtor-form");
     }
