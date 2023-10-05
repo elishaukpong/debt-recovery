@@ -32,7 +32,12 @@
                             <img src="../assets/images/avatar/avatar-1.jpg" class="avatar-xxl
                                 rounded-circle border border-4 border-white-color-40" alt="">
                             <a href="#!" class="position-absolute top-0 right-0 me-2" data-bs-toggle="tooltip" data-placement="top" title="" data-original-title="Verified">
-                            <img src="../assets/images/svg/checked-mark.svg" alt="" height="30" width="30">
+                                {{-- @if($user->profilepic)
+                                    {{$user->profilepic}}
+                                @else
+                                    NULL
+                                @endif --}}
+                                <img src="../assets/images/svg/checked-mark.svg" alt="" height="30" width="30">
                             </a>
                         </div>
 
@@ -66,7 +71,13 @@
 
                                 <h6 class="text-uppercase fs-5 ls-2">Gender
                                 </h6>
-                                <p class="mb-0">Male</p>
+                                <p class="mb-0">
+                                    @if($user->gender)
+                                    {{$user->gender}}
+                                    @else
+                                    NULL
+                                    @endif
+                                </p>
                                 </div>
                                 <div class="col-6 mb-5">
                                 <h6 class="text-uppercase fs-5 ls-2">Phone </h6>
@@ -81,7 +92,13 @@
                                 <div class="col-6">
                                     <h6 class="text-uppercase fs-5 ls-2">Location
                                     </h6>
-                                    <p class="mb-0">Ahmedabad, India</p>
+                                    <p class="mb-0">
+                                        @if($user->gender)
+                                        {{$user->gender}}
+                                        @else
+                                        NULL
+                                        @endif
+                                    </p>
                                 </div>
                             </div>
                         </div>

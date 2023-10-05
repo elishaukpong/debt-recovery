@@ -19,6 +19,8 @@ class UserRepository extends BaseRepository
 
     public function edit($data)
     {
+        $user =  $this->user->where("id", auth()->id())->update($data);
+        dd($user);
         return $this->user->where("id", auth()->user())->update($data);
     }
 

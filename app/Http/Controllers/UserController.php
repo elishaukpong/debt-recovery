@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileRequest;
+// use Illuminate\Http\Request;
 use App\Repository\Eloquent\UserRepository;
 
 class UserController extends Controller
@@ -21,6 +22,8 @@ class UserController extends Controller
     }
 
     public function edit(ProfileRequest $request){
+
+        // dd($request);
 
         if(! $this->userRepository->edit($request->validated()) ){
             return redirect()->back()->withErrors("Profile was not updated");

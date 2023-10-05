@@ -7,12 +7,12 @@
                 <div class="row">
 
                     <div class="col-10">
-                        <h4 class="mb-0">Debtors </h4>
+                        <h4 class="mb-0">Reminders</h4>
                     </div>
 
                     <div class="col-2">
                         <a href="{{ route('debtor.form') }}" class="btn btn-outline-primary
-                            d-md-block">Create Debtor
+                            d-md-block">
                         </a>
                     </div>
                 </div>
@@ -32,10 +32,6 @@
                 @endforeach
             @endif
 
-            {{-- @if (!$debtors)
-                <h3 class="text-center"> NO DEBTORS AVAILABLE</h3>
-            @endif --}}
-
 
             @isset($debtors)
 
@@ -43,38 +39,39 @@
                     <table class="table text-nowrap">
                         <thead class="table-light">
                             <tr>
-                                <th>Name</th>
-                                <th>Phone Number</th>
-                                <th>Amount</th>
-                                <th>Due Date</th>
-                                <th>Status</th>
+                                <th>Debtor's Name</th>
+                                <th> Method </th>
+                                <th> Time </th>
+                                <th> Frequency</th>
+                                <th> Action</th>
                             </tr>
                         </thead>
                         <tbody>
 
                             @foreach ($debtors as $debtor)
+                            @foreach ($reminders as $reminder)
                                 <tr>
                                     <td class="align-middle">
                                         <div class="d-flex align-items-center">
-                                            @isset($debtor->image)
 
-                                                <div>
-                                                    <img src="assets/images/avatar/avatar-2.jpg" alt="" class="avatar-md avatar rounded-circle">
-                                                </div>
-                                            @endisset
                                             <div class="ms-3 lh-1">
                                                 <h5 class=" mb-1">{{ $debtor->first_name . " ". $debtor->last_name}}</h5>
-                                                <p class="mb-0">{{ $debtor->email}}</p>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="align-middle">{{ $debtor->phone_number }}</td>
-                                    <td class="align-middle"> {{ $debtor->currency." ".$debtor->amount }}</td>
-                                    <td class="align-middle">{{ $debtor->due_date }} </td>
+                                    <td class="align-middle">{{ $reminder->method }}</td>
+                                    <td class="align-middle"> {{ $reminder->time }}</td>
+                                    <td class="align-middle">{{ $reminder->frequency }} </td>
                                     <td class="align-middle d-flex" height="65">
-                                       <div class="text-success mt-2 col"><em>Active</em></div>
+                                       {{-- <div class="text-success mt-2 col"><em>Active</em></div> --}}
 
                                        <div class="dropdown dropstart col mt-2 col" style="display:flex;">
+                                            <a href="{{ route("reminder.form", $debtor->id) }}">
+                                                    <button>
+                                                        Add Reminder
+                                                    </button>
+                                            </a>
+
                                             <a href="{{ route("debtor.editform", $debtor->id) }}">
                                                     <button style="border: none; background:white;">
                                                         <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/></svg>

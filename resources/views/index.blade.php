@@ -2,16 +2,12 @@
 @section("page-content")
 
     <div class="container-fluid mt-3">
-        <!-- row  -->
         <div class="row mt-6">
             <div class="col-md-12 col-12">
-                <!-- card  -->
                 <div class="card">
-                    <!-- card header  -->
                     <div class="card-header bg-white  py-4">
                         <h4 class="mb-0">Active Debts</h4>
                     </div>
-                    <!-- table  -->
                     <div class="table-responsive">
                         <table class="table text-nowrap mb-0">
                             <thead class="table-light">
@@ -25,6 +21,8 @@
 
 
                             <tbody>
+                                @if ($debtors)
+
                                 @foreach ($debtors as $debtor)
                                 <tr>
                                     <td class="align-middle">
@@ -47,10 +45,13 @@
                                 </tr>
                                 @endforeach
 
+                                @else
+                                <h2 class="text-center"> NO DEBTORS AVAILABLE</h2>
+                                @endif
+
                             </tbody>
                         </table>
                     </div>
-                    <!-- card footer  -->
                     <div class="card-footer bg-white text-center">
                         <a href="#" class="link-primary">View All Debts</a>
 
@@ -59,19 +60,19 @@
 
             </div>
         </div>
-        <!-- row  -->
+
         <div class="row my-6">
             <div class="col-xl-4 col-lg-12 col-md-12 col-12 mb-6 mb-xl-0">
-                <!-- card  -->
+
                 <div class="card h-100">
-                    <!-- card body  -->
+
                     <div class="card-body">
                         <div class="d-flex align-items-center
             justify-content-between">
                             <div>
                                 <h4 class="mb-0">Debt Performance </h4>
                             </div>
-                            <!-- dropdown  -->
+
                             <div class="dropdown dropstart">
                                 <a class="text-muted text-primary-hover" href="#" role="button" id="dropdownTask" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="icon-xxs" data-feather="more-vertical"></i>
@@ -83,11 +84,11 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- chart  -->
+
                         <div class="mb-8">
                             <div id="perfomanceChart"></div>
                         </div>
-                        <!-- icon with content  -->
+
                         <div class="d-flex align-items-center justify-content-around">
                             <div class="text-center">
                                 <i class="icon-sm text-success" data-feather="check-circle"></i>
@@ -108,14 +109,14 @@
                     </div>
                 </div>
             </div>
-            <!-- card  -->
+
             <div class="col-xl-8 col-lg-12 col-md-12 col-12">
                 <div class="card h-100">
-                    <!-- card header  -->
+
                     <div class="card-header bg-white py-4">
                         <h4 class="mb-0">Last Paid</h4>
                     </div>
-                    <!-- table  -->
+
                     <div class="table-responsive">
                         <table class="table text-nowrap">
                             <thead class="table-light">

@@ -59,8 +59,9 @@
                     <h4 class="mb-1">Basic information</h4>
 
                   </div>
-                  <form action="{{route('profile.edit')}}">
-
+                  <form action="{{route('profile.edit')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method("put")
 
                     <div class="mb-3 row">
                       <label for="fullName" class="col-sm-4 col-form-label
@@ -85,23 +86,31 @@
                       <label for="phone" class="col-sm-4 col-form-label
                           form-label">Phone</label>
                       <div class="col-md-8 col-12">
-                        <input type="text" class="form-control" placeholder="Phone" id="phone" name="phone_number" value="{{ old('first_name', $user->phone_number) }}" required>
+                        <input type="text" class="form-control" placeholder="Phone" id="phone" name="phone_number" value="{{ old('phone', $user->phone_number) }}" required>
+                      </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                      <label for="phone" class="col-sm-4 col-form-label
+                          form-label">Gender</label>
+                      <div class="col-md-8 col-12">
+                        <input type="text" class="form-control" placeholder="Gender" id="gender" name="gender" value="{{ old('gender', $user->gender) }}">
                       </div>
                     </div>
 
                     <div class="mb-3 row">
                       <label for="location" class="col-sm-4 col-form-label
-                          form-label" name="location" value="{{ old('location', $user->location) }}">Location</label>
+                          form-label">Location</label>
 
                       <div class="col-md-8 col-12">
-                        <select class="form-select" id="location">
+                        <select class="form-select" id="location" name="location" value="{{ old('location', $user->location) }}">
                             <option selected>Select Country</option>
-                            <option value="1">Canada</option>
-                            <option value="2">India</option>
-                            <option value="3">Nigeria</option>
-                            <option value="4">UK</option>
-                            <option value="5">USA</option>
-                          </select>
+                            <option value="Canada">Canada</option>
+                            <option value="India">India</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="UK">UK</option>
+                            <option value="USA">USA</option>
+                        </select>
                       </div>
                     </div>
 

@@ -2,12 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DebtorController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ReminderController;
 use App\Http\Controllers\ResetPasswordController;
-use App\Http\Controllers\UserController;
-use App\Models\Debtor;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +45,10 @@ Route::middleware("auth:sanctum")->group(function(){
 
     Route::get("/profile", [UserController::class, 'profile'])->name('profile');
     Route::get("/profile/edit", [UserController::class, 'editProfile'])->name('profile.editpage');
-    Route::post("/profile/edit", [UserController::class, 'edit'])->name('profile.edit');
+    Route::put("/profile/edit", [UserController::class, 'edit'])->name('profile.edit');
+
+    Route::get('/reminder/schedule', [ReminderController::class, 'reminderSchedule'])->name("reminder.schedule");
+    Route::get('/reminder/form', [ReminderController::class, 'displayForm'])->name("reminder.form");
+    Route::get('/reminder/form', [ReminderController::class, 'displayForm'])->name("remind");
 });
 
