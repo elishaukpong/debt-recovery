@@ -9,13 +9,13 @@
 
             <div class="card-body p-6">
             <div class="mb-4">
-                <a href=""><h3 class="mb-2 text-primary" alt="" >Debt Reminder</h3></a>
+                <a href=""><h3 class="mb-2 text-primary" alt="" > Set Debt Reminder</h3></a>
             </div>
 
             @if(session()->has('message'))
-            <div class="alert alert-success">
-                {{ session()->get('message') }}
-            </div>
+                <div class="alert alert-success">
+                    {{ session()->get('message') }}
+                </div>
             @endif
 
             @if(count($errors) > 0)
@@ -29,9 +29,10 @@
             <form action="{{ route("remind") }}" method="POST">
                 @csrf
 
+                <input type="text" name="debtor_id" value="{{$debtor->id}}" hidden/>
                 <div class="mb-3">
                     <select class="form-select" name="method">
-                        <option selected >Choose Method Of Reminder</option>
+                        <option selected hidden >Method</option>
                         <option value="email">Email</option>
                         <option value="sms">SMS</option>
                     </select>
@@ -39,45 +40,26 @@
 
                 <div class="mb-3">
                     <select class="form-select" name="time">
-                        {{-- <option selected >Time</option> --}}
-                        <option class="form-select" name="daily"> Daily
-                            <option value="morning">Morning - 8am</option>
-                            <option value="afternon">Afternoon - 2pm</option>
-                            <option value="evening">Evening - 8pm</option>
-                        </option>
-                        <option value="monthly">Monthly
-                            <option value=""> CALENDER</option>
-                        </option>
-                    </select>
-                </div>
-
-                {{-- <div class="mb-3">
-                    <select class="form-select" name="frequency">
-                        <select class="form-select" name="daily">
-                        <option selected >Time</option>
+                        <option selected hidden >Time</option>
                         <option value="daily">Daily</option>
                         <option value="monthly">Monthly</option>
                     </select>
-                </div> --}}
+                </div>
 
-                <div>
+                <div class="mb-3">
+                    <select class="form-select" name="frequency">
+                        <option selected hidden >Frequency</option>
+                        <option value=" 1"> Once </option>
+                        <option value=" 2"> Two Times</option>
+                        <option value=" 3"> Three Times</option>
+                        <option value=" 4"> Four Times</option>
+                        <option value=" 5"> Five Times</option>
+                    </select>
+                </div>
+
                 <div class="d-grid">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
-
-                <div class="d-md-flex justify-content-between mt-4">
-                    <div class="mb-2 mb-md-0">
-                    <a href="{{ route("register") }}" class="fs-5">Create An
-                        Account </a>
-                    </div>
-                    <div>
-                    <a href="{{ route("password.forget") }}" class="text-inherit
-                        fs-5">Forgot your password?</a>
-                    </div>
-
-                </div>
-                </div>
-
 
             </form>
             </div>
