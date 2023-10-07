@@ -27,7 +27,8 @@ class DebtorRepository extends BaseRepository
         return $debtors;
     }
 
-    public function getId(int $id) : Debtor{
+    public function getId(int $id) : Debtor
+    {
        return $this->debtor->find($id);
     }
 

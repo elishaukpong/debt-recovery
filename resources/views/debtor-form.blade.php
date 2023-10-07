@@ -19,6 +19,8 @@
                         <p class="mb-0 fs-5 text-muted">Fill the form to create a debtor</p>
                     </div>
 
+
+
                 </div>
 
                 <div class="col-xl-9 col-lg-8 col-md- col-12">
@@ -42,8 +44,8 @@
                             <div class="mb-6">
                                 <h3 class="mb-1">Form</h3>
 
-
                             </div>
+
                             <form action="{{ route("debtor.create") }}" method="POST">
                                 @csrf
 

@@ -22,9 +22,10 @@ class ReminderRequest extends FormRequest
     public function rules(): array
     {
         return [
+            "debtor_id" => 'required',
             "method" => "required",
             "time" => "required",
-            "frequency" => "required"
+            "frequency" => 'required'
         ];
     }
 }
