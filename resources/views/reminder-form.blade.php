@@ -29,7 +29,7 @@
             <form action="{{ route("remind") }}" method="POST">
                 @csrf
 
-                <input type="text" name="debtor_id" value="{{$debtor->id}}" hidden/>
+                <input type="text" name="debtor_id" value="{{ $debtor->id }}" hidden/>
                 <div class="mb-3">
                     <select class="form-select" name="method">
                         <option selected hidden >Method</option>

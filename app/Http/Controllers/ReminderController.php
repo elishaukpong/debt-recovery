@@ -27,13 +27,13 @@ class ReminderController extends Controller
     }
 
 
-    public function reminder( ReminderRequest $request)
+    public function reminder( ReminderRequest $request )
     {
         if(! $this->reminderRepository->setReminder($request->validated()) )
         {
             return redirect()->back()->withErrors("Reminder was not created");
         }
 
-       return view('reminder-schedule', ['debtors' => $this->debtorRepository->index(),'reminder' => $this->reminderRepository->setReminder($request->validated())]);
+       return view('reminder-schedule', ['debtors' => $this->debtorRepository->index(), 'reminders' => $this->reminderRepository->getReminders()]);
     }
 }

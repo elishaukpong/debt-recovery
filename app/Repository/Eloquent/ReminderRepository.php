@@ -16,4 +16,13 @@ class ReminderRepository extends BaseRepository
     {
         return $this->reminder->create($data);
     }
+
+    public function getReminders()
+    {
+        if(! $reminders = $this->reminder->all()){
+            return false;
+        }
+
+        return $reminders;
+    }
 }

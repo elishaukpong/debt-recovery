@@ -35,7 +35,7 @@
                         <thead class="table-light">
                             <tr>
                                 <th>Debtor's Name</th>
-                                @isset($reminder)
+                                @isset($reminders)
                                     <th> Method </th>
                                     <th> Time </th>
                                     <th> Frequency</th>
@@ -56,11 +56,12 @@
                                         </div>
                                     </td>
 
-                                    @isset($reminder)
-                                            <p> {{$debtor->reminder->method}}</p>
+                                    @isset($reminders)
+                                        @foreach ($reminders as  $reminder)
                                             <td class="align-middle">{{ $reminder->method }}</td>
                                             <td class="align-middle"> {{ $reminder->time }}</td>
                                             <td class="align-middle">{{ $reminder->frequency }} </td>
+                                        @endforeach
                                     @endisset
 
                                     <td class="align-middle d-flex" height="65">
