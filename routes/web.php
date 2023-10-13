@@ -50,6 +50,7 @@ Route::middleware("auth:sanctum")->group(function(){
     Route::get('/reminder/schedule', [ReminderController::class, 'reminderSchedule'])->name("reminder.schedule");
     Route::get('/reminder/form/{debtorId}', [ReminderController::class, 'displayForm'])->name("reminder.form");
     Route::post('/frequency', [ReminderController::class, 'frequency'])->name("frequency");
-    Route::post('/reminder/form', [ReminderController::class, 'reminder'])->name("remind");
+    Route::post('/reminder/form', [ReminderController::class, 'setReminder'])->name("remind");
+    Route::post('/reminders/{debtorId}', [ReminderController::class, 'getReminder'])->name("reminders.get");
 });
 

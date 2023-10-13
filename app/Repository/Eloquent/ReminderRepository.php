@@ -15,6 +15,7 @@ class ReminderRepository extends BaseRepository
     public function setReminder( array $data)
     {
         return $this->reminder->create($data);
+
     }
 
     public function getReminders()
@@ -24,5 +25,10 @@ class ReminderRepository extends BaseRepository
         }
 
         return $reminders;
+    }
+
+    public function getReminder($debtorId)
+    {
+        return $this->reminder->where("debtor_id", $debtorId)->get();
     }
 }
