@@ -18,7 +18,7 @@ class Debtor extends Model
         return $this->belongsTo(User::class, "user_id");
     }
 
-    public function reminder():HasMany{
+    public function reminders():HasMany{
         return $this->hasMany(Reminder::class, "reminder_id");
     }
 }
