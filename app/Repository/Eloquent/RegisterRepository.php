@@ -7,7 +7,9 @@ use App\Models\User;
 class RegisterRepository extends BaseRepository
 {
     public function __construct(private User $user)
-    {}
+    {
+        $this->user = $user;
+    }
 
     public function register(array $data): bool
     {
